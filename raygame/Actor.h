@@ -46,8 +46,12 @@ public:
     /// <param name="componentName">The name of the component to search for.</param>
     /// <returns>A pointer to the component if a match was found.
     /// Returns nullptr if a match wasn't found.</returns>
+    /// 
+    template <typename T>
     Component* getComponent(const char* componentName);
+    template <typename T>
     Component* addComponent(Component* component);
+ 
     bool removeComponent(const char* componentName);
 
     /// <summary>
@@ -99,3 +103,55 @@ private:
     int m_componentCount;
 };
 
+template<typename T>
+inline Component* Actor::getComponent(const char* componentName)
+{
+    //Iterate through all of the components in the array.
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        //If the component name matches the name given...
+        if (m_components[i]->getName() == componentName)
+        {
+            //...return the component.
+            return m_components[i];
+        }
+    }
+
+    //Return null by default.
+    return nullptr;
+}
+
+template<typename T>
+inline Component* Actor::addComponent(Component* component)
+{
+    //If this actor doesn't own this component...
+    Actor* owner = component->getOwner();
+    if (owner && owner != this)
+    {
+        //...return nullptr to prevent it from being added.
+        return nullptr;
+    }
+
+    //Create a new array that has a size that is greater than the original by one.
+    Component** tempArray = new Component * [m_componentCount + 1];
+
+    //Copy all values from the old array to the temp array.
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        tempArray[i] = m_components[i];
+    }
+
+    //Delete the old array.
+    delete m_components;
+
+    //Set the last index in the temp array to be the component we want to add.
+    tempArray[m_componentCount] = component;
+
+    //Set the original array to be the temp array.
+    m_components = tempArray;
+    //Increment the component count.
+    m_componentCount++;
+
+    //Return the new component that was added.
+    return component;
+}
