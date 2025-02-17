@@ -27,7 +27,7 @@ void Actor::start()
 {
     m_started = true;
 
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->start();
     }
@@ -35,7 +35,7 @@ void Actor::start()
 
 void Actor::onCollision(Actor* other)
 {
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->onCollision(other);
     }
@@ -45,7 +45,7 @@ void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
 
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->update(deltaTime);
     }
@@ -53,7 +53,7 @@ void Actor::update(float deltaTime)
 
 void Actor::draw()
 {
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->draw();
     }
@@ -62,7 +62,7 @@ void Actor::draw()
 void Actor::end()
 {
     m_started = false;
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->end();
     }
@@ -74,7 +74,7 @@ void Actor::onDestroy()
     if (getTransform()->getParent())
         getTransform()->getParent()->removeChild(getTransform());
 
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->onDestroy();
     }

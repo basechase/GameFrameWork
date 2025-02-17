@@ -4,7 +4,7 @@
 class Camera2D;
 class Scene;
 
-static class Engine
+class Engine
 {
 public:
     Engine();

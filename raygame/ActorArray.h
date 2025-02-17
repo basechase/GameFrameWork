@@ -45,8 +45,8 @@ public:
 	bool contains(Actor* actor);
 
 private:
-	DynamicArray<Actor**> m_actors;
-	//Actor** m_actors;
+//	DynamicArray<Actor**> m_actors;
+	Actor** m_actors;
 	int m_actorCount;
 };
 

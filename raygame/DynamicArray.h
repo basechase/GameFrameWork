@@ -1,6 +1,5 @@
 #pragma once
 
-
 template<typename T>
 class DynamicArray
 {
@@ -13,7 +12,6 @@ public:
 	DynamicArray<T>& operator=(const DynamicArray<T>& other);
 	T& operator[](int index);
 	const T& operator[](int index) const;
-
 
 	int Length() const;
 	void Resize(int newSize);
@@ -34,6 +32,7 @@ public:
 	void Remove(const T& value);
 	void Remove(const T* array, int size);
 	void Remove(const DynamicArray<T>& other);
+	bool Contains(const T& value);
 	void Clear();
 
 private:
@@ -45,6 +44,7 @@ private:
 template<typename T>
 inline DynamicArray<T>::DynamicArray()
 {
+
 	m_length = 0;
 	m_array = new T[m_length];
 }
@@ -54,16 +54,11 @@ inline DynamicArray<T>::DynamicArray(const T* array, int size)
 {
 	m_length = size;
 	m_array = new T[m_length];
-	for (int i = 0; i < m_length; i++
+	for (int i = 0; i < m_length; i++)
 	{
 		m_array[i] = array[i];
-	})
+	}
 }
-
-
-
-
-
 
 template<typename T>
 inline DynamicArray<T>::DynamicArray(const DynamicArray<T>& other)
@@ -72,7 +67,7 @@ inline DynamicArray<T>::DynamicArray(const DynamicArray<T>& other)
 	m_array = new T[m_length];
 	for (int i = 0; i < m_length; i++)
 	{
-		m_array[i] = other.m_array;
+		m_array[i] = other.m_array[i];
 	}
 }
 
@@ -90,7 +85,7 @@ inline DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other)
 	m_array = new T[m_length];
 	for (int i = 0; i < m_length; i++)
 	{
-		m_array[i] = other.m_array;
+		m_array[i] = other.m_array[i];
 	}
 	return *this;
 }
@@ -99,32 +94,27 @@ template<typename T>
 inline T& DynamicArray<T>::operator[](int index)
 {
 	return m_array[index];
-
-	// TODO: insert return statement here
 }
 
 template<typename T>
 inline const T& DynamicArray<T>::operator[](int index) const
 {
 	return m_array[index];
-	// TODO: insert return statement here
 }
 
 template<typename T>
 inline int DynamicArray<T>::Length() const
 {
 	return m_length;
-
 }
 
 template<typename T>
 inline void DynamicArray<T>::Resize(int newSize)
 {
-	T* newArray = new T[newsize];
+	T* newArray = new T[newSize];
 	for (int i = 0; i < m_length && i < newSize; i++)
 	{
 		newArray[i] = m_array[i];
-
 	}
 	delete[] m_array;
 	m_array = newArray;
@@ -171,7 +161,6 @@ inline void DynamicArray<T>::Add(const T* array, int size)
 	{
 		m_array[oldLength + i] = array[i];
 	}
-
 }
 
 template<typename T>
@@ -190,8 +179,8 @@ inline void DynamicArray<T>::AddUnique(const T& value)
 {
 	for (int i = 0; i < m_length; i++)
 	{
-		if m_array[i] = value;
-		return;
+		if (m_array[i] == value)
+			return;
 	}
 	Add(value);
 }
@@ -203,10 +192,9 @@ inline void DynamicArray<T>::Insert(int index, const T& value)
 	for (int i = m_length - 1; i > index; i--)
 	{
 		m_array[i] = m_array[i - 1];
-
 	}
-
 	m_array[index] = value;
+
 }
 
 template<typename T>
@@ -216,7 +204,6 @@ inline void DynamicArray<T>::Insert(int index, const T* array, int size)
 	Resize(m_length + size);
 	for (int i = m_length - 1; i >= index + size; i--)
 	{
-		//yeet
 		m_array[i] = m_array[i - size];
 	}
 	for (int i = 0; i < size; i++)
@@ -231,10 +218,9 @@ inline void DynamicArray<T>::Insert(int index, const DynamicArray<T>& other)
 	Resize(m_length + other.m_length);
 	for (int i = m_length - 1; i >= index + other.m_length; i--)
 	{
-		//yeet
 		m_array[i] = m_array[i - other.m_length];
 	}
-	for (int i = 0; i < other.m_array; i++)
+	for (int i = 0; i < other.m_length; i++)
 	{
 		m_array[index + i] = other.m_array[i];
 	}
@@ -246,7 +232,6 @@ inline void DynamicArray<T>::RemoveIndex(int index)
 	for (int i = index; i < m_length - 1; i++)
 	{
 		m_array[i] = m_array[i + 1];
-
 	}
 	Resize(m_length - 1);
 }
@@ -258,7 +243,7 @@ inline void DynamicArray<T>::Remove(const T& value)
 	{
 		if (m_array[i] == value)
 		{
-			RemoveIndex[i];
+			RemoveIndex(i);
 			return;
 		}
 	}
@@ -280,7 +265,25 @@ inline void DynamicArray<T>::Remove(const DynamicArray<T>& other)
 	{
 		Remove(other.m_array[i]);
 	}
+}
+/// <summary>
+/// Checks to see if a value is in the array
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <param name="value"></param>
+/// <returns></returns>
+template<typename T>
+inline bool DynamicArray<T>::Contains(const T& value)
+{
+	for (int i = 0; i < m_length; i++)
+	{
+		if (m_array[i] == value)
+		{
+			return true;
+		}
 
+	}
+	return false;
 }
 
 template<typename T>
@@ -288,6 +291,4 @@ inline void DynamicArray<T>::Clear()
 {
 	Resize(0);
 }
-
-
 
