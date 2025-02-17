@@ -1,7 +1,7 @@
 #pragma once
 class Transform2D;
 class Collider;
-class Component;
+#include "Component.h";
 #include "DynamicArray.h"
 class Actor
 {
