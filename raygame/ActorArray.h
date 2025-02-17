@@ -1,4 +1,5 @@
 #pragma once
+#include "DynamicArray.h"
 class Actor;
 
 class ActorArray
@@ -28,6 +29,7 @@ public:
 	/// </summary>
 	/// <param name="index">The index of the desired actor</param>
 	/// <returns>The actor found at the index or nullptr if the index was out of bounds</returns>
+	
 	Actor* getActor(int index);
 
 	/// <summary>
@@ -43,7 +45,8 @@ public:
 	bool contains(Actor* actor);
 
 private:
-	Actor** m_actors;
+	DynamicArray<Actor**> m_actors;
+	//Actor** m_actors;
 	int m_actorCount;
 };
 

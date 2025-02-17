@@ -2,7 +2,7 @@
 class Transform2D;
 class Collider;
 class Component;
-
+#include "DynamicArray.h"
 class Actor
 {
 public:
@@ -99,8 +99,8 @@ private:
     bool m_started;
     Transform2D* m_transform;
     Collider* m_collider;
-    Component** m_components;
-    int m_componentCount;
+    DynamicArray<Component*> m_components;
+    
 };
 
 template<typename T>
@@ -114,6 +114,7 @@ inline Component* Actor::getComponent(const char* componentName)
         {
             //...return the component.
             return m_components[i];
+            
         }
     }
 
@@ -132,25 +133,7 @@ inline Component* Actor::addComponent(Component* component)
         return nullptr;
     }
 
-    //Create a new array that has a size that is greater than the original by one.
-    Component** tempArray = new Component * [m_componentCount + 1];
-
-    //Copy all values from the old array to the temp array.
-    for (int i = 0; i < m_componentCount; i++)
-    {
-        tempArray[i] = m_components[i];
-    }
-
-    //Delete the old array.
-    delete m_components;
-
-    //Set the last index in the temp array to be the component we want to add.
-    tempArray[m_componentCount] = component;
-
-    //Set the original array to be the temp array.
-    m_components = tempArray;
-    //Increment the component count.
-    m_componentCount++;
+    m_components.Add(component);
 
     //Return the new component that was added.
     return component;
