@@ -47,12 +47,13 @@ public:
     /// <returns>A pointer to the component if a match was found.
     /// Returns nullptr if a match wasn't found.</returns>
     /// 
+    
     template <typename T>
-    Component* getComponent(const char* componentName);
+   T* getComponent(const char* componentName);
     template <typename T>
-    Component* addComponent(Component* component);
- 
-    bool removeComponent(const char* componentName);
+    T* addComponent(T* component);
+    
+    // bool removeComponent(const char* componentName);
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -104,10 +105,10 @@ private:
 };
 
 template<typename T>
-inline Component* Actor::getComponent(const char* componentName)
+inline T* Actor::getComponent(const char* componentName)
 {
     //Iterate through all of the components in the array.
-    for (int i = 0; i < m_componentCount; i++)
+    for (int i = 0; i < m_components.Length(); i++)
     {
         //If the component name matches the name given...
         if (m_components[i]->getName() == componentName)
@@ -123,7 +124,7 @@ inline Component* Actor::getComponent(const char* componentName)
 }
 
 template<typename T>
-inline Component* Actor::addComponent(Component* component)
+inline T* Actor::addComponent(T* component)
 {
     //If this actor doesn't own this component...
     Actor* owner = component->getOwner();
