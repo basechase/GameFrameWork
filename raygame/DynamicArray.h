@@ -339,7 +339,38 @@ inline Actor* DynamicArray<T>::getActor(int index)
 template<typename T>
 inline bool DynamicArray<T>::removeActor(Actor* actor)
 {
-	return false;
+	//Check to see if the actor was null
+	if (!actor)
+	{
+		return false;
+	}
+
+	bool actorRemoved = false;
+	//Create a new array with a size one less than our old array
+	Actor** newArray = new Actor * [m_length - 1];
+	//Create variable to access tempArray index
+	int j = 0;
+	//Copy values from the old array to the new array
+	for (int i = 0; i < m_length; i++)
+	{
+		if (actor != m_array[i])
+		{
+			newArray[j] = m_array[i];
+			j++;
+		}
+		else
+		{
+			actorRemoved = true;
+		}
+	}
+	//Set the old array to the new array
+	if (actorRemoved)
+	{
+		m_array = newArray;
+		m_length--;
+	}
+	//Return whether or not the removal was successful
+	return actorRemoved;
 }
 
 template<typename T>
