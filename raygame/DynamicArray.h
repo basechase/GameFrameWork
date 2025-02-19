@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Actor.h"
 template<typename T>
 class DynamicArray
 {
@@ -12,7 +12,7 @@ public:
 	DynamicArray<T>& operator=(const DynamicArray<T>& other);
 	T& operator[](int index);
 	const T& operator[](int index) const;
-
+	void addActor(Actor* actor);
 	int Length() const;
 	void Resize(int newSize);
 
@@ -33,7 +33,10 @@ public:
 	void Remove(const T* array, int size);
 	void Remove(const DynamicArray<T>& other);
 	bool Contains(const T& value);
+	bool Contains(Actor* actor);
 	void Clear();
+
+	Actor* getActor(int index);
 
 private:
 	T* m_array;
@@ -101,6 +104,25 @@ inline const T& DynamicArray<T>::operator[](int index) const
 {
 	return m_array[index];
 }
+
+template<typename T>
+inline void DynamicArray<T>::addActor(Actor* actor)
+{
+	//Create a new array with a size one greater than our old array
+	Actor** appendedArray = new Actor * [m_length + 1];
+	//Copy the values from the old array to the new array
+	for (int i = 0; i < m_length; i++)
+	{
+		appendedArray[i] = m_array[i];
+	}
+
+	//Set the last value in the new array to be the actor we want to add
+	appendedArray[m_length] = actor;
+	//Set old array to hold the values of the new array
+	m_array = appendedArray;
+	m_length++;
+}
+
 
 template<typename T>
 inline int DynamicArray<T>::Length() const
@@ -266,12 +288,7 @@ inline void DynamicArray<T>::Remove(const DynamicArray<T>& other)
 		Remove(other.m_array[i]);
 	}
 }
-/// <summary>
-/// Checks to see if a value is in the array
-/// </summary>
-/// <typeparam name="T"></typeparam>
-/// <param name="value"></param>
-/// <returns></returns>
+
 template<typename T>
 inline bool DynamicArray<T>::Contains(const T& value)
 {
@@ -286,9 +303,20 @@ inline bool DynamicArray<T>::Contains(const T& value)
 	return false;
 }
 
+
+
 template<typename T>
 inline void DynamicArray<T>::Clear()
 {
 	Resize(0);
 }
 
+template<typename T>
+inline Actor* DynamicArray<T>::getActor(int index)
+{
+	//Return false if the index is out of bounds
+	if (index < 0 || index >= m_length)
+		return nullptr;
+
+	return m_array[index];
+}

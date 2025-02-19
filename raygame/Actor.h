@@ -97,10 +97,10 @@ protected:
     const char* m_name;
 
 private:
+    DynamicArray<Component*> m_components;
     bool m_started;
     Transform2D* m_transform;
     Collider* m_collider;
-    DynamicArray<Component*> m_components;
     
 };
 
@@ -133,7 +133,7 @@ inline T* Actor::addComponent(T* component)
         //...return nullptr to prevent it from being added.
         return nullptr;
     }
-
+  
     m_components.Add(component);
 
     //Return the new component that was added.
