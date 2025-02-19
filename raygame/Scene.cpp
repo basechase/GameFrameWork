@@ -17,23 +17,23 @@ MathLibrary::Matrix3* Scene::getWorld()
 
 void Scene::addUIElement(Actor* actor)
 {
-    m_UIElements.addActor(actor);
+    m_UIElements.Add(actor);
 
     //Adds all children of the UI to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_UIElements.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_UIElements.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.removeActor(index);
+    return m_UIElements.Remove(index);
 }
 
 bool Scene::removeUIElement(Actor* actor)
 {
-    return m_UIElements.removeActor(actor);
+    return m_UIElements.Remove(actor);
 }
 
 void Scene::addActor(Actor* actor)
@@ -43,18 +43,18 @@ void Scene::addActor(Actor* actor)
     //Adds all children of the actor to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_actors.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_actors.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
 bool Scene::removeActor(int index)
 {
-    return m_actors.removeActor(index);
+    return m_actors.Remove(index);
 }
 
 bool Scene::removeActor(Actor* actor)
 {
-    return m_actors.removeActor(actor);
+    return m_actors.Remove(actor);
 }
 
 void Scene::start()
@@ -65,7 +65,7 @@ void Scene::start()
 void Scene::update(float deltaTime)
 {
     //Updates all actors
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
         if (!m_actors.getActor(i)->getStarted())
             m_actors.getActor(i)->start();
@@ -74,9 +74,9 @@ void Scene::update(float deltaTime)
     }
 
     //Checks collision for all actors
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
-        for (int j = 0; j < m_actors.getLength(); j++)
+        for (int j = 0; j < m_actors.Length(); j++)
         {
             if (m_actors.getActor(i)->checkForCollision(m_actors.getActor(j)) && j != i && m_actors.getActor(j)->getStarted())
                 m_actors.getActor(i)->onCollision(m_actors.getActor(j));
