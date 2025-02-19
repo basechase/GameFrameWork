@@ -1,10 +1,12 @@
 #include "Scene.h"
 #include "Transform2D.h"
+#include "DynamicArray.h"
+#include "Actor.h"
 
 Scene::Scene()
 {
+    DynamicArray<Actor**> m_actors;
     m_actorCount = 0;
-    m_actors = ActorArray();
     m_world = new MathLibrary::Matrix3();
 }
 
@@ -36,7 +38,7 @@ bool Scene::removeUIElement(Actor* actor)
 
 void Scene::addActor(Actor* actor)
 {
-    m_actors.addActor(actor);
+    m_actors.Add(actor);
 
     //Adds all children of the actor to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
@@ -85,7 +87,7 @@ void Scene::update(float deltaTime)
 void Scene::updateUI(float deltaTime)
 {
     //Calls update for all actors in UI array
-    for (int i = 0; i < m_UIElements.getLength(); i++)
+    for (int i = 0; i < m_UIElements.Length(); i++)
     {
         if (!m_UIElements.getActor(i)->getStarted())
             m_UIElements.getActor(i)->start();
@@ -97,7 +99,7 @@ void Scene::updateUI(float deltaTime)
 void Scene::draw()
 {
     //Calls draw for all actors in the array
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
         m_actors.getActor(i)->draw();
     }
@@ -106,7 +108,7 @@ void Scene::draw()
 void Scene::drawUI()
 {
     //Calls draw for all actors in UI array
-    for (int i = 0; i < m_UIElements.getLength(); i++)
+    for (int i = 0; i < m_UIElements.Length(); i++)
     {
         m_UIElements.getActor(i)->draw();
     }
@@ -115,7 +117,7 @@ void Scene::drawUI()
 void Scene::end()
 {
     //Calls end for all actors in the array
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
         if (m_actors.getActor(i)->getStarted())
             m_actors.getActor(i)->end();

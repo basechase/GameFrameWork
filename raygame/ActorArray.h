@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "DynamicArray.h"
 class Actor;
@@ -51,3 +52,5 @@ private:
 };
 
 
+
+*/
