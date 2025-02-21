@@ -17,18 +17,18 @@ MathLibrary::Matrix3* Scene::getWorld()
 
 void Scene::addUIElement(Actor* actor)
 {
-    m_UIElements.addActor(actor);
+    m_UIElements.Add(actor);
 
     //Adds all children of the UI to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_UIElements.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_UIElements.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.RemoveIndex(index);
+    return m_UIElements.Remove(index);
 }
 
 bool Scene::removeUIElement(Actor* actor)
@@ -38,12 +38,12 @@ bool Scene::removeUIElement(Actor* actor)
 
 void Scene::addActor(Actor* actor)
 {
-    m_actors.addActor(actor);
+    m_actors.Add(actor);
 
     //Adds all children of the actor to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_actors.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_actors.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
