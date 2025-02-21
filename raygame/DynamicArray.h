@@ -266,12 +266,7 @@ inline void DynamicArray<T>::Remove(const DynamicArray<T>& other)
 		Remove(other.m_array[i]);
 	}
 }
-/// <summary>
-/// Checks to see if a value is in the array
-/// </summary>
-/// <typeparam name="T"></typeparam>
-/// <param name="value"></param>
-/// <returns></returns>
+
 template<typename T>
 inline bool DynamicArray<T>::Contains(const T& value)
 {

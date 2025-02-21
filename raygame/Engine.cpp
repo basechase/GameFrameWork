@@ -5,7 +5,9 @@
 #include "DynamicArray.h"
 
 bool Engine::m_applicationShouldClose = false;
-Scene** Engine::m_scenes = new Scene*;
+DynamicArray<Scene*> m_scenes;
+
+//Scene** Engine::m_scenes = new Scene*;
 DynamicArray<Actor*> m_actorsToDelete;
 int Engine::m_sceneCount = 0;
 int Engine::m_currentSceneIndex = 0;
@@ -98,6 +100,7 @@ Scene* Engine::getCurrentScene()
 
 int Engine::getCurrentSceneIndex()
 {
+
 	return m_currentSceneIndex;
 }
 

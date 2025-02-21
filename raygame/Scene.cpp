@@ -28,7 +28,8 @@ void Scene::addUIElement(Actor* actor)
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.Remove(index);
+    return m_UIElements.Remove(m_UIElements[index]);
+    
 }
 
 bool Scene::removeUIElement(Actor* actor)
@@ -67,7 +68,7 @@ void Scene::update(float deltaTime)
     //Updates all actors
     for (int i = 0; i < m_actors.Length(); i++)
     {
-        if (!m_actors.getActor(i)->getStarted())
+        if (!m_actors.Contains(i)->getStarted())
             m_actors.getActor(i)->start();
 
         m_actors.getActor(i)->update(deltaTime);
@@ -101,7 +102,7 @@ void Scene::draw()
     //Calls draw for all actors in the array
     for (int i = 0; i < m_actors.Length(); i++)
     {
-        m_actors.getActor(i)->draw();
+        m_actors.Contains(i)->draw();
     }
 }
 
@@ -110,7 +111,7 @@ void Scene::drawUI()
     //Calls draw for all actors in UI array
     for (int i = 0; i < m_UIElements.Length(); i++)
     {
-        m_UIElements.getActor(i)->draw();
+        m_UIElements.Contains(i)->draw();
     }
 }
 
@@ -119,8 +120,8 @@ void Scene::end()
     //Calls end for all actors in the array
     for (int i = 0; i < m_actors.Length(); i++)
     {
-        if (m_actors.getActor(i)->getStarted())
-            m_actors.getActor(i)->end();
+        if (m_actors.Contains(i)->getStarted())
+            m_actors.Contains(i)->end();
     }
 
     m_started = false;
