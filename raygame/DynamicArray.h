@@ -37,8 +37,7 @@ public:
 	void Clear();
 
 	Actor* getActor(int index);
-	bool removeActor(Actor* actor); 
-	bool removeActor(int index);
+
 private:
 	T* m_array;
 	int m_length;
@@ -304,20 +303,6 @@ inline bool DynamicArray<T>::Contains(const T& value)
 	return false;
 }
 
-template<typename T>
-inline bool DynamicArray<T>::Contains(Actor* actor)
-{
-	for (int i = 0; i < m_length; i++)
-	{
-		if (m_array[i] == actor)
-		{
-			return true;
-		}
-
-	}
-	return false;
-}
-
 
 
 template<typename T>
@@ -334,48 +319,4 @@ inline Actor* DynamicArray<T>::getActor(int index)
 		return nullptr;
 
 	return m_array[index];
-}
-
-template<typename T>
-inline bool DynamicArray<T>::removeActor(Actor* actor)
-{
-	return false;
-}
-
-template<typename T>
-inline bool DynamicArray<T>::removeActor(int index)
-{
-	//Check to see if the index is outside the bounds of our array
-	if (index < 0 || index >= m_length)
-	{
-		return false;
-	}
-
-	bool actorRemoved = false;
-
-	//Create a new array with a size one less than our old array 
-	Actor** newArray = new Actor * [m_length - 1];
-	//Create variable to access tempArray index
-	int j = 0;
-	//Copy values from the old array to the new array
-	for (int i = 0; i < m_length; i++)
-	{
-		//If the current index is not the index that needs to be removed,
-		//add the value into the old array and increment j
-		if (i != index)
-		{
-			newArray[j] = m_array[i];
-			j++;
-		}
-		else
-		{
-			delete m_array[i];
-			actorRemoved = true;
-		}
-	}
-
-	//Set the old array to be the tempArray
-	m_array = newArray;
-	m_length--;
-	return actorRemoved;
 }
