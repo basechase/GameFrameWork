@@ -5,8 +5,7 @@
 
 Scene::Scene()
 {
-    DynamicArray<Actor**> m_actors;
-    m_actorCount = 0;
+    
     m_world = new MathLibrary::Matrix3();
 }
 
@@ -28,13 +27,15 @@ void Scene::addUIElement(Actor* actor)
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.Remove(m_UIElements[index]);
+    m_UIElements.Remove(m_UIElements[index]);
+    return true;
     
 }
 
 bool Scene::removeUIElement(Actor* actor)
 {
-    return m_UIElements.Remove(actor);
+    m_UIElements.Remove(actor);
+    return true;
 }
 
 void Scene::addActor(Actor* actor)
@@ -48,14 +49,16 @@ void Scene::addActor(Actor* actor)
     }
 }
 
-bool Scene::removeActor(int index)
+bool Scene::removeActor(Actor* index)
 {
-    return m_actors.Remove(index);
+    m_actors.Remove(index);
+    return true;
 }
 
 bool Scene::removeActor(Actor* actor)
 {
-    return m_actors.Remove(actor);
+    m_actors.Remove(actor);
+    return true;
 }
 
 void Scene::start()
