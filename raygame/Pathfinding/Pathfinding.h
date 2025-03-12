@@ -28,7 +28,7 @@ namespace pathfinding {
 
 		void ConnectTo(Node* other, float cost);
 	};
-
+	std::vector<Node*> AStarSearch(Node* startNode, Node* endNode);
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
 	void DrawPath(std::vector<Node*>& path, Color lineColor);
 	void DrawNode(Node* node, bool selected = false);
