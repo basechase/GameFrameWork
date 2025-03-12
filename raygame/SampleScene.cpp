@@ -14,9 +14,18 @@ void SampleScene::start()
 	asciiMap.push_back("010101110110");
 	asciiMap.push_back("011100000010");
 	asciiMap.push_back("010111111110");
-	asciiMap.push_back("010000001000");
+	asciiMap.push_back("011101111000");
 	asciiMap.push_back("011111111110");
-	asciiMap.push_back("000000000000");
+	asciiMap.push_back("010100001100");
+	asciiMap.push_back("010100000110");
+	asciiMap.push_back("011101000010");
+	asciiMap.push_back("011001000010");
+	asciiMap.push_back("011111111110");
+	asciiMap.push_back("010000000000");
+	asciiMap.push_back("011111111110");
+	asciiMap.push_back("011111111110");
+	asciiMap.push_back("011111111110");
+	asciiMap.push_back("011111111110");
 	m_nodeMap.Initialise(asciiMap);
 
 	m_pathAgent = new pathfinding::PathAgent();

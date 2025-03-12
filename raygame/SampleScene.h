@@ -9,8 +9,10 @@ class SampleScene :
 {
 public:
     void start() override;
+    
     void update(float deltaTime) override;
     void end();
+    
 
 private:
     pathfinding::NodeMap m_nodeMap;

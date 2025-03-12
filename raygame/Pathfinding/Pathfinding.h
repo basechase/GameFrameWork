@@ -20,7 +20,8 @@ namespace pathfinding {
 		Node(float x, float y) { position.x = x; position.y = y; gScore = 0; previous = nullptr; }
 
 		Vector2 position;
-
+		float hScore;
+		float fScore;
 		float gScore;
 		Node* previous;
 
