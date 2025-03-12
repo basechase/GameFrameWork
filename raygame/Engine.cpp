@@ -5,10 +5,10 @@
 #include "DynamicArray.h"
 
 bool Engine::m_applicationShouldClose = false;
-DynamicArray<Scene*> m_scenes;
+DynamicArray<Scene*> Engine::m_scenes;
 
 //Scene** Engine::m_scenes = new Scene*;
-DynamicArray<Actor*> m_actorsToDelete;
+DynamicArray<Actor*> Engine::m_actorsToDelete;
 int Engine::m_sceneCount = 0;
 int Engine::m_currentSceneIndex = 0;
 
@@ -110,28 +110,17 @@ int Engine::addScene(Scene* scene)
 	if (!scene)
 		return -1;
 
-	//Create a new temporary array that one size larger than the original
-	Scene** tempArray = new Scene * [m_sceneCount + 1];
+	
 
-	//Copy values from old array into new array
-	for (int i = 0; i < m_sceneCount; i++)
-	{
-		tempArray[i] = m_scenes[i];
-	}
+	
 
-	//Store the current index
-	int index = m_sceneCount;
+	
 
-	//Sets the scene at the new index to be the scene passed in
-	tempArray[index] = scene;
+	
+	m_scenes.Add(scene);
+	
 
-	m_scenes.Clear();
-
-	//Set the old array to the tmeporary array
-	m_scenes = tempArray;
-	m_sceneCount++;
-
-	return index;
+	
 }
 
 void Engine::addActorToDeletionList(Actor* actor)
@@ -156,36 +145,7 @@ bool Engine::removeScene(Scene* scene)
 	if (!scene)
 		return false;
 
-	bool sceneRemoved = false;
-
-	//Create a new temporary array that is one less than our original array
-	Scene** tempArray = new Scene * [m_sceneCount - 1];
-
-	//Copy all scenes except the scene we don't want into the new array
-	int j = 0;
-	for (int i = 0; i < m_sceneCount; i++)
-	{
-		if (tempArray[i] != scene)
-		{
-			tempArray[j] = m_scenes[i];
-			j++;
-		}
-		else
-		{
-			sceneRemoved = true;
-		}
-	}
-
-	//If the scene was successfully removed set the old array to be the new array
-	if (sceneRemoved)
-	{
-	
-		m_scenes = tempArray;
-		m_sceneCount--;
-	}
-
-
-	return sceneRemoved;
+	m_scenes.Remove(scene);
 }
 
 void Engine::setCurrentScene(int index)
