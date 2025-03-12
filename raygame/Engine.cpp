@@ -16,7 +16,7 @@ int Engine::m_currentSceneIndex = 0;
 Engine::Engine()
 {
 	m_applicationShouldClose = false;
-	m_scenes = new Scene*;
+	//m_scenes = new Scene*;
 	m_camera = new Camera2D();
 	m_currentSceneIndex = 0;
 	m_sceneCount = 0;
@@ -125,7 +125,7 @@ int Engine::addScene(Scene* scene)
 	//Sets the scene at the new index to be the scene passed in
 	tempArray[index] = scene;
 
-	delete m_scenes;
+	m_scenes.Clear();
 
 	//Set the old array to the tmeporary array
 	m_scenes = tempArray;
@@ -179,6 +179,7 @@ bool Engine::removeScene(Scene* scene)
 	//If the scene was successfully removed set the old array to be the new array
 	if (sceneRemoved)
 	{
+	
 		m_scenes = tempArray;
 		m_sceneCount--;
 	}
@@ -223,7 +224,7 @@ void Engine::destroyActorsInList()
 	{
 		
 		//Remove actor from the scene
-		Actor* actorToDelete = m_actorsToDelete.RemoveIndex(i);
+		Actor* actorToDelete = m_actorsToDelete[i];
 		if (!getCurrentScene()->removeActor(actorToDelete))
 			getCurrentScene()->removeUIElement(actorToDelete);
 
