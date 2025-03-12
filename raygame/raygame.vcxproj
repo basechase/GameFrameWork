@@ -155,6 +155,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pathfinding\NodeMap.cpp" />
+    <ClCompile Include="Pathfinding\PathAgent.cpp" />
     <ClCompile Include="Pathfinding\Pathfinding.cpp" />
     <ClCompile Include="SampleScene.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="List\List.h" />
     <ClInclude Include="List\Node.h" />
     <ClInclude Include="Pathfinding\NodeMap.h" />
+    <ClInclude Include="Pathfinding\PathAgent.h" />
     <ClInclude Include="Pathfinding\Pathfinding.h" />
     <ClInclude Include="SampleScene.h" />
     <ClInclude Include="Scene.h" />

@@ -82,6 +82,7 @@ void Scene::update(float deltaTime)
     {
         for (int j = 0; j < m_actors.Length(); j++)
         {
+            
             if (m_actors.getActor(i)->checkForCollision(m_actors.getActor(j)) && j != i && m_actors.getActor(j)->getStarted())
                 m_actors.getActor(i)->onCollision(m_actors.getActor(j));
         }
@@ -105,7 +106,8 @@ void Scene::draw()
     //Calls draw for all actors in the array
     for (int i = 0; i < m_actors.Length(); i++)
     {
-        m_actors.Contains(i)->draw();
+        
+        
     }
 }
 
