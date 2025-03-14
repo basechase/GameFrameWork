@@ -118,7 +118,7 @@ int Engine::addScene(Scene* scene)
 
 	
 	m_scenes.Add(scene);
-	
+	return 0;
 
 	
 }
@@ -146,6 +146,8 @@ bool Engine::removeScene(Scene* scene)
 		return false;
 
 	m_scenes.Remove(scene);
+
+	return scene;
 }
 
 void Engine::setCurrentScene(int index)
