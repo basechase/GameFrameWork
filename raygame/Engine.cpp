@@ -18,8 +18,8 @@ Engine::Engine()
 	m_applicationShouldClose = false;
 	//m_scenes = new Scene*;
 	m_camera = new Camera2D();
-	m_currentSceneIndex = 0;
-	m_sceneCount = 0;
+	//m_currentSceneIndex = 0;
+	//m_sceneCount = 0;
 }
 
 void Engine::start()
@@ -87,7 +87,7 @@ void Engine::run()
 Scene* Engine::getScene(int index)
 {
 	//Return nullptr if the scene is out of bounds
-	if (index < 0 || index >= m_sceneCount)
+	if (index < 0 || index >= m_scenes.Length())
 		return nullptr;
 
 	return m_scenes[index];
@@ -107,8 +107,12 @@ int Engine::getCurrentSceneIndex()
 int Engine::addScene(Scene* scene)
 {
 	///If the scene is null then return before running any other logic
-	if (!scene)
-		return -1;
+	if (!scene) 
+	{
+
+	return -1;
+	
+	}
 
 	
 
@@ -119,7 +123,8 @@ int Engine::addScene(Scene* scene)
 	
 	m_scenes.Add(scene);
 	
-
+	
+	
 	
 }
 

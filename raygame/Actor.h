@@ -49,7 +49,7 @@ public:
     /// 
     
     template <typename T>
-   T* getComponent(const char* componentName);
+   T* getComponent(T* componentName);
     template <typename T>
     T* addComponent(T* component);
     
@@ -105,7 +105,7 @@ private:
 };
 
 template<typename T>
-inline T* Actor::getComponent(const char* componentName)
+inline T* Actor::getComponent(T* componentName)
 {
     //Iterate through all of the components in the array.
     for (int i = 0; i < m_components.Length(); i++)
@@ -133,8 +133,12 @@ inline T* Actor::addComponent(T* component)
         //...return nullptr to prevent it from being added.
         return nullptr;
     }
+    else 
+    {
+
 
     m_components.Add(component);
+    }
 
     //Return the new component that was added.
     return component;

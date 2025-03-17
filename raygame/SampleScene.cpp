@@ -10,6 +10,7 @@ void SampleScene::start()
 	test->getTransform()->setScale({ 50, 50 });
 
 	addActor(test);
+	
 }
 /*
 void SampleScene::update(float deltaTime)
