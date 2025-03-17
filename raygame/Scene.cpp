@@ -109,7 +109,7 @@ void Scene::draw()
     for (int i = 0; i < m_actors.Length(); i++)
     {
         
-        
+        m_actors[i]->draw();
     }
 }
 
