@@ -34,7 +34,7 @@ namespace pathfinding
 		}
 
 		// now loop over the nodes, creating connections between each node and its neighbour to the West and South on the grid
-		// this will link up all nodes 
+	   // this will link up all nodes
 		for (int y = 0; y < height; y++)
 		{
 			for (int x = 0; x < width; x++)
@@ -56,6 +56,22 @@ namespace pathfinding
 					{
 						node->ConnectTo(nodeSouth, 1);
 						nodeSouth->ConnectTo(node, 1);
+					}
+
+					// diagonals - look to (-1,-1)
+					Node* nodeSouthWest = (x == 0 || y == 0) ? nullptr : GetNode(x - 1, y - 1);
+					if (nodeSouthWest)
+					{
+						node->ConnectTo(nodeSouthWest, 1.414f); // TODO weights
+						nodeSouthWest->ConnectTo(node, 1.414f);
+					}
+
+					// and (+1, -1)
+					Node* nodeSouthEast = (x == width - 1 || y == 0) ? nullptr : GetNode(x + 1, y - 1);
+					if (nodeSouthEast)
+					{
+						node->ConnectTo(nodeSouthEast, 1.414f);
+						nodeSouthEast->ConnectTo(node, 1.414f);
 					}
 				}
 			}

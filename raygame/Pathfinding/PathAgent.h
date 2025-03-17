@@ -3,8 +3,24 @@
 #include "pathfinding.h"
 #include <vector>
 
+class Behavior;
+
+
 namespace pathfinding
-{
+{ 
+	struct MovementInfo 
+	{
+		Vector2 m_position;
+		Vector2 m_velocity;
+		Vector2 m_acceleration;
+
+		float m_maxSpeed;
+		float m_maxForce;
+
+		float m_rotation;
+		float m_rotationDampening;
+
+	};
 	class PathAgent
 	{
 	public:

@@ -115,6 +115,9 @@
     <ClInclude Include="Pathfinding\PathAgent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pathfinding\Behavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Images\bullet.png">
