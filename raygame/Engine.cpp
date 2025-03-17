@@ -118,7 +118,7 @@ int Engine::addScene(Scene* scene)
 
 	
 	m_scenes.Add(scene);
-	return 0;
+	
 
 	
 }
