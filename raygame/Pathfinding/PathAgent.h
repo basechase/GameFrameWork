@@ -24,7 +24,13 @@ namespace pathfinding
 	class PathAgent
 	{
 	public:
-		Vector2 position;
+		Vector2 position = {0,0};
+		Vector2 velocity;
+		Vector2 force;
+
+
+		Vector2 GetPosition() { return position; }
+		float frictionModifier = 0.99f;
 
 		std::vector<Node*> path;
 		int currentIndex;

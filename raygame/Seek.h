@@ -5,11 +5,13 @@
 class Seek : public Behavior
 {
 public:
-	Seek();
-	virtual ~Seek();
-	virtual void Update(float deltaTime, PathAgent& agent);
+	Seek() {};
+	virtual ~Seek() {};
+	virtual void Update(PathAgent* agent, float deltaTime);
 	inline virtual const char* GetBehaviorName() { return "Seek"; }
+	void SetDestination(Vector2* destination) { m_destination = destination; }
 
-	Vector2* m_targetPosition;
-	
+private:
+	Vector2* m_destination;
+
 };

@@ -9,21 +9,21 @@ void SampleScene::start()
 	m_nodeMap.cellSize = 32;
 	std::vector<std::string> asciiMap;
 
-	asciiMap.push_back("000000000000");
-	asciiMap.push_back("010111011100");
-	asciiMap.push_back("010101110110");
-	asciiMap.push_back("011100000010");
-	asciiMap.push_back("010111111110");
-	asciiMap.push_back("010000001000");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("011111111110");
-	asciiMap.push_back("000000000000");
+	asciiMap.push_back("00000000000000000000");
+	asciiMap.push_back("01011111111111011100");
+	asciiMap.push_back("01011111111101110110");
+	asciiMap.push_back("01111111111100000010");
+	asciiMap.push_back("01011111111111111110");
+	asciiMap.push_back("01001111111100001000");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("01111111111111111110");
+	asciiMap.push_back("00000000000000000000");
 	m_nodeMap.Initialise(asciiMap);
 
 	m_pathAgent = new pathfinding::PathAgent();

@@ -1,16 +1,8 @@
 #include "Seek.h"
+#include "Pathfinding/PathAgent.h"
+#include "raymath.h"   
 
-
-
-Seek::Seek()
+void Seek::Update(PathAgent* agent, float deltaTime)
 {
-
-}
-
-Seek::~Seek()
-{
-}
-
-void Seek::Update(float deltaTime, PathAgent& agent)
-{
+	//Vector2 v = Vector2Subtract(*m_destination, agent->GetPosition());
 }
