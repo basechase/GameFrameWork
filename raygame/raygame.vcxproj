@@ -161,6 +161,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Seek.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="SteeringAgent.cpp" />
+    <ClCompile Include="SteeringScene.cpp" />
     <ClCompile Include="Transform2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +185,8 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Seek.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="SteeringAgent.h" />
+    <ClInclude Include="SteeringScene.h" />
     <ClInclude Include="Transform2D.h" />
   </ItemGroup>
   <ItemGroup>

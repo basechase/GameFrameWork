@@ -30,6 +30,7 @@ namespace pathfinding
 
 
 		Vector2 GetPosition() { return position; }
+
 		float frictionModifier = 0.99f;
 
 		std::vector<Node*> path;

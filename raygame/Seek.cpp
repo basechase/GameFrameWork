@@ -1,8 +1,9 @@
 #include "Seek.h"
 #include "Pathfinding/PathAgent.h"
 #include "raymath.h"   
-
-void Seek::Update(PathAgent* agent, float deltaTime)
+#include "SteeringAgent.h"
+void Seek::UpdateBehavior()
 {
-	//Vector2 v = Vector2Subtract(*m_destination, agent->GetPosition());
+	SteeringAgent* temp = (SteeringAgent*)getOwner();
+	MathLibrary::Vector2 destination = temp->targetPosition;
 }
