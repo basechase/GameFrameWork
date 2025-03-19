@@ -32,10 +32,17 @@ namespace pathfinding
 
 		float speed;
 
+		void AddBehavior(Behavior* behavior) { m_behaviors.push_back(behavior); }
 		void SetNode(Node* node);
 		void Update(float deltaTime);
 		void GoToNode(Node* node);
 
 		void Draw();
+		
+		MovementInfo m_movementInfo;
+		static std::vector<PathAgent*>* agents;
+
+	private: 
+		std::vector<Behavior*> m_behaviors;
 	};
 }
