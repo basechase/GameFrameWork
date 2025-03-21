@@ -233,6 +233,24 @@ MathLibrary::Matrix3* Transform2D::getLocalMatrix()
     return m_localMatrix;
 }
 
+void Transform2D::Translate(MathLibrary::Vector2 direction)
+{
+
+    LocalPosition(LocalPosition() + direction);
+    
+}
+
+void Transform2D::LocalPosition(MathLibrary::Vector2 position)
+{
+    m_translation->m02 = position.x;
+    m_translation->m12 = position.y;
+}
+
+MathLibrary::Vector2 Transform2D::LocalPosition()
+{
+    return MathLibrary::Vector2(m_translation->m02, m_translation->m12);
+}
+
 void Transform2D::updateTransforms()
 {
     //Combine the translation, rotation, and scale matrices to form the local matrix

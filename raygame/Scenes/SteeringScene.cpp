@@ -8,7 +8,7 @@ void SteeringScene::start()
 {
 
 	Scene::start();
-	player_actor = new Actor(50,50, "player");
+	player_actor = new Actor(100,50, "player");
 	
 	
 

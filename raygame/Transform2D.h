@@ -121,6 +121,12 @@ public:
     /// </summary>
     MathLibrary::Matrix3* getLocalMatrix();
 
+
+    void Translate(MathLibrary::Vector2 direction);
+    void LocalPosition(MathLibrary::Vector2 position);
+    MathLibrary::Vector2 LocalPosition();
+
+
     /// <summary>
     /// Updates the global transform to be the combination of the paernt and local
     /// transforms. Updates the transforms for all children of this transform

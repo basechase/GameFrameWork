@@ -6,7 +6,7 @@
 Input::Input(Actor* owner, const char* name) : Component::Component(owner, name)
 {
 	
-	m_speed = 100;
+	m_speed = 1;
 }
 
 Input::~Input()
@@ -24,13 +24,13 @@ void Input::update(float deltaTime)
 	if (IsKeyDown(KEY_W))
 	{
 		std::cout << "read" << std::endl;
-		
+		m_owner->getTransform()->Translate(m_owner->getTransform()->getForward() * m_speed);
 		
 	}
 
 	if (IsKeyDown(KEY_S))
 	{
-		
+		m_owner->getTransform()->Translate(m_owner->getTransform()->getForward() * -m_speed);
 
 	}
 
