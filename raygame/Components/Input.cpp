@@ -6,7 +6,7 @@
 Input::Input(Actor* owner, const char* name) : Component::Component(owner, name)
 {
 	
-	m_speed = 1;
+	m_speed = .5;
 }
 
 Input::~Input()
@@ -36,13 +36,13 @@ void Input::update(float deltaTime)
 
 	if (IsKeyDown(KEY_A))
 	{
-		
+		m_owner->getTransform()->rotate(.005);
 
 	}
 
 	if (IsKeyDown(KEY_D))
 	{
-
+		m_owner->getTransform()->rotate(-.005);
 	}
 }
 
