@@ -15,17 +15,35 @@ Input::~Input()
 
 void Input::start()
 {
-
+	
 }
 
 void Input::update(float deltaTime)
 {
+	
 	if (IsKeyDown(KEY_W))
 	{
+		std::cout << "read" << std::endl;
 		
-		m_owner->add
+		
 	}
 
+	if (IsKeyDown(KEY_S))
+	{
+		
+
+	}
+
+	if (IsKeyDown(KEY_A))
+	{
+		
+
+	}
+
+	if (IsKeyDown(KEY_D))
+	{
+
+	}
 }
 
 void Input::end()

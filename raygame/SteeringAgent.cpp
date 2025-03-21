@@ -2,20 +2,23 @@
 #include "SpriteComponent.h"
 #include "Transform2D.h"
 #include "raylib.h"
-
+#include <iostream>
 void SteeringAgent::Start()
 {
-	SpriteComponent* sprite = new SpriteComponent(this, "Images/player.png");
+	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
 	// add seek component
 }
 
 void SteeringAgent::Update()
 {
+	
 	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) 
 	{
+		//change to player position?
+		std::cout << "mouse read" << std::endl;
 		Vector2 temp = GetMousePosition();
-		targetPosition.x = temp.x;
-		targetPosition.y = temp.y;
+		target_Position.x = temp.x;
+		target_Position.y = temp.y;
 	
 	}
 

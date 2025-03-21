@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "Transform2D.h"
 class SteeringAgent : public Actor
+
 {
 
 public:
@@ -24,8 +25,8 @@ public:
 
 	void changeState(States states);
 
-	MathLibrary::Vector2 targetPosition;
-
+	MathLibrary::Vector2 target_Position;
+	MathLibrary::Vector2 agent_Position;
 	States currentState;
 
 };

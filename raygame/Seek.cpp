@@ -5,5 +5,11 @@
 void Seek::UpdateBehavior()
 {
 	SteeringAgent* temp = (SteeringAgent*)getOwner();
-	MathLibrary::Vector2 destination = temp->targetPosition;
+	MathLibrary::Vector2 destination = temp->target_Position;
+
+
+
+
+
+
 }
