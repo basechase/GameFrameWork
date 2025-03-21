@@ -3,7 +3,7 @@
 #include "Transform2D.h"
 #include "SampleScene.h"
 #include "DynamicArray.h"
-
+#include "SteeringScene.h"
 bool Engine::m_applicationShouldClose = false;
 DynamicArray<Scene*> Engine::m_scenes;
 
@@ -31,7 +31,7 @@ void Engine::start()
 	SetTargetFPS(0);
 
 	//Start the scene
-	m_currentSceneIndex = addScene(new SampleScene());
+	m_currentSceneIndex = addScene(new SteeringScene());
 	m_scenes[m_currentSceneIndex]->start();
 }
 

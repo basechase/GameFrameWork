@@ -9,6 +9,6 @@ class SteeringScene : public Scene
     void end();
 
 
-
+    Actor* player_actor;
 
 };

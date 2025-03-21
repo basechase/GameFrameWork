@@ -153,6 +153,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pathfinding\NodeMap.cpp" />
     <ClCompile Include="Pathfinding\PathAgent.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="List\Iterator.h" />
     <ClInclude Include="List\List.h" />
     <ClInclude Include="List\Node.h" />
