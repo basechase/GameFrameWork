@@ -101,7 +101,7 @@ private:
     Transform2D* m_transform;
     Collider* m_collider;
     DynamicArray<Component*> m_components;
-    
+    Actor* m_owner;
 };
 
 template<typename T>

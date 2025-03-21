@@ -48,7 +48,7 @@ public:
 	/// </summary>
 	virtual void onDestroy() {};
 
-private:
+
 	const char* m_name;
 	Actor* m_owner;
 };
