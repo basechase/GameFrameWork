@@ -1,8 +1,8 @@
 #include "Actor.h"
 #include "Transform2D.h"
 #include <string.h>
-#include "Collider.h"
-#include "Component.h"
+#include "Collider/Collider.h"
+#include "Components/Component.h"
 
 Actor::Actor()
 {

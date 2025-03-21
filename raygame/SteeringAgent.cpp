@@ -1,5 +1,5 @@
 #include "SteeringAgent.h"
-#include "SpriteComponent.h"
+#include "Components/SpriteComponent.h"
 #include "Transform2D.h"
 #include "raylib.h"
 #include <iostream>

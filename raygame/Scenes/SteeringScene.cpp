@@ -1,7 +1,7 @@
 #include "SteeringScene.h"
-#include "SpriteComponent.h"
+#include "Components/SpriteComponent.h"
 #include "Transform2D.h"
-#include "Input.h"
+#include "Components/Input.h"
 #include "SteeringAgent.h"
 
 void SteeringScene::start()

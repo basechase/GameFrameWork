@@ -1,9 +1,9 @@
 #include "Engine.h"
 #include "raylib.h"
 #include "Transform2D.h"
-#include "SampleScene.h"
+#include "Scenes/SampleScene.h"
 #include "DynamicArray.h"
-#include "SteeringScene.h"
+#include "Scenes/SteeringScene.h"
 bool Engine::m_applicationShouldClose = false;
 DynamicArray<Scene*> Engine::m_scenes;
 

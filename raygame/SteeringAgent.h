@@ -24,7 +24,8 @@ public:
 	void end();
 
 	void changeState(States states);
-
+public:
+	SteeringAgent* agent;
 	MathLibrary::Vector2 target_Position;
 	MathLibrary::Vector2 agent_Position;
 	States currentState;

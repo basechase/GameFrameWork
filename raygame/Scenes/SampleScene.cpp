@@ -1,5 +1,5 @@
 #include "SampleScene.h"
-#include "SpriteComponent.h"
+#include "Components/SpriteComponent.h"
 #include "Transform2D.h"
 #include "Pathfinding/Pathfinding.h"
 
