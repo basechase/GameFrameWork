@@ -2,7 +2,8 @@
 #include "Components/Component.h"
 #include "Vector2.h"
 #include "DynamicArray.h"
-
+#include "Pathfinding/Behavior.h"
+#include<vector>
 class Collider;
 class Transform2D;
 class Actor
@@ -57,9 +58,10 @@ public:
     float GetMaxSpeed() { return m_maxSpeed; }
     void SetMaxSpeed(float speed) { m_maxSpeed = speed; }
 
-   // void SetVelocity(Vector2 velocity) { m_velocity = velocity; }
-   // Vector2 GetVelocity() { return m_velocity; }
+   void SetVelocity(MathLibrary::Vector2 velocity) { m_velocity = velocity; }
+   MathLibrary::Vector2 GetVelocity() { return m_velocity; }
 
+   void AddForce(MathLibrary::Vector2 force) { m_force = m_force + force; }
 
     
     // bool removeComponent(const char* componentName);
@@ -103,6 +105,9 @@ public:
     virtual void onCollision(Actor* other);
 
 protected:
+    DynamicArray<Behavior*> m_behaviorList;
+    MathLibrary::Vector2 m_force;
+    MathLibrary::Vector2 m_velocity;
     const char* m_name;
     float m_maxSpeed;
    // Vector2 m_playerPosition;

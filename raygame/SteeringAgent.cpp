@@ -15,9 +15,13 @@ void SteeringAgent::Start()
 {
 	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
 	// add seek component
+	m_seekComponent = new Seek();
+
+	// Set the target position (this will need to be linked to your player or target)
+	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
-void SteeringAgent::Update()
+void SteeringAgent::Update(float deltaTime)
 {
 	
 	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) 
@@ -33,12 +37,16 @@ void SteeringAgent::Update()
 	currentState = seek;
 	switch (currentState)
 	{
-	case SteeringAgent::wander:
-		break;
 	case SteeringAgent::seek:
 		// get seek component 
 		//call updatebehavior
-
+		if (m_seekComponent)
+		{
+			m_seekComponent->UpdateBehavior(deltaTime, this);
+		}
+		break;
+		break;
+	case SteeringAgent::wander:
 		break;
 	case SteeringAgent::arrive:
 		break;

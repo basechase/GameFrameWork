@@ -10,8 +10,8 @@ public:
 	Seek();
 	~Seek();
 	bool UpdateBehavior(float deltaTime, Actor* actor);
-	
-	Vector2* m_targetPosition;
+	void setTarget(MathLibrary::Vector2 target) { target = m_targetPosition; }
+	MathLibrary::Vector2 m_targetPosition;
 
 
 
