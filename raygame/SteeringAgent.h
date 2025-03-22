@@ -18,7 +18,7 @@ public:
 		evade
 
 	};
-
+	SteeringAgent(float x, float y, const char* name);
 	void Start();
 	void Update();
 	void end();

@@ -3,6 +3,14 @@
 #include "Transform2D.h"
 #include "raylib.h"
 #include <iostream>
+#include "Actor.h"
+
+SteeringAgent::SteeringAgent(float x, float y, const char* name)
+{
+	m_transform = new Transform2D(this);
+	m_transform->setLocalPosition({ x,y });
+	m_name = name;
+}
 void SteeringAgent::Start()
 {
 	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");

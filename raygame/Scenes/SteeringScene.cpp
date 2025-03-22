@@ -16,8 +16,12 @@ void SteeringScene::start()
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));
 	
 	player_actor->getTransform()->setScale({ 50,50 });
+	SteeringAgent* enemy = new SteeringAgent(300,200, "enemy");
+	enemy->addComponent(new SpriteComponent(enemy, "Images/enemy.png"));
+	enemy->getTransform()->setScale({ 50,50 });
 
-
+	addActor(enemy);
+	
 	addActor(player_actor);
 
 }

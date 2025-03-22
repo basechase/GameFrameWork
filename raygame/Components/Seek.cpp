@@ -7,7 +7,7 @@ void Seek::UpdateBehavior()
 	SteeringAgent* temp = (SteeringAgent*)getOwner();
 	MathLibrary::Vector2 destination = temp->target_Position;
 
-	MathLibrary::Vector2 v = Vector2Subtract(destination, )
+	//MathLibrary::Vector2 v = Vector2Subtract(destination, )
 
 
 
