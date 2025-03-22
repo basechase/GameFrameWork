@@ -7,9 +7,11 @@ class Seek : public Component
 {
 
 public:
-
-	void UpdateBehavior();
-
+	Seek();
+	~Seek();
+	bool UpdateBehavior(float deltaTime, Actor* actor);
+	
+	Vector2* m_targetPosition;
 
 
 

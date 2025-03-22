@@ -19,7 +19,6 @@ void SteeringScene::start()
 	SteeringAgent* enemy = new SteeringAgent(300,200, "enemy");
 	enemy->addComponent(new SpriteComponent(enemy, "Images/enemy.png"));
 	enemy->getTransform()->setScale({ 50,50 });
-
 	addActor(enemy);
 	
 	addActor(player_actor);
@@ -30,6 +29,7 @@ void SteeringScene::update(float deltaTime)
 {
 
 	Scene::update(deltaTime);
+	
 
 
 }

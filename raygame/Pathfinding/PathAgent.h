@@ -2,7 +2,7 @@
 #include "raylib.h"
 #include "pathfinding.h"
 #include <vector>
-
+#include "DynamicArray.h"
 class Behavior;
 
 

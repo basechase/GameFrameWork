@@ -1,8 +1,10 @@
 #pragma once
-class Transform2D;
-class Collider;
-#include "Components/Component.h";
+#include "Components/Component.h"
+#include "Vector2.h"
 #include "DynamicArray.h"
+
+class Collider;
+class Transform2D;
 class Actor
 {
 public:
@@ -52,6 +54,13 @@ public:
    T* getComponent(T* componentName);
     template <typename T>
     T* addComponent(T* component);
+    float GetMaxSpeed() { return m_maxSpeed; }
+    void SetMaxSpeed(float speed) { m_maxSpeed = speed; }
+
+   // void SetVelocity(Vector2 velocity) { m_velocity = velocity; }
+   // Vector2 GetVelocity() { return m_velocity; }
+
+
     
     // bool removeComponent(const char* componentName);
 
@@ -95,16 +104,16 @@ public:
 
 protected:
     const char* m_name;
-
-
+    float m_maxSpeed;
+   // Vector2 m_playerPosition;
     bool m_started;
     Transform2D* m_transform;
     Collider* m_collider;
     DynamicArray<Component*> m_components;
     Actor* m_owner;
 };
-
 template<typename T>
+
 inline T* Actor::getComponent(T* componentName)
 {
     //Iterate through all of the components in the array.
@@ -122,6 +131,7 @@ inline T* Actor::getComponent(T* componentName)
     //Return null by default.
     return nullptr;
 }
+
 
 template<typename T>
 inline T* Actor::addComponent(T* component)

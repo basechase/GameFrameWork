@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "raymath.h"
 #include <Vector2.h>
 #include <Matrix3.h>
 
@@ -34,6 +34,9 @@ public:
     /// <param name="value">The new world coordinates to place the transform.</param>
     void setWorldPostion(MathLibrary::Vector2 value);
 
+    
+
+    
 
     /// <returns>Returns the position of the actor relative to its parent transform.</returns>
     MathLibrary::Vector2 getLocalPosition();

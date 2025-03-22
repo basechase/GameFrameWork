@@ -22,7 +22,7 @@ void SteeringAgent::Update()
 	
 	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) 
 	{
-		//change to player position?
+		//wont need this now that there is a player
 		std::cout << "mouse read" << std::endl;
 		Vector2 temp = GetMousePosition();
 		target_Position.x = temp.x;
