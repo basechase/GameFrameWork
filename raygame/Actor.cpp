@@ -3,7 +3,7 @@
 #include <string.h>
 #include "Collider/Collider.h"
 #include "Components/Component.h"
-
+#include <iostream>
 Actor::Actor()
 {
     m_transform = new Transform2D(this);
@@ -51,11 +51,13 @@ void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
    
+    //need to calculate velocity
+
     m_velocity = Truncate(m_velocity.operator+(m_force.operator/(deltaTime)), m_maxSpeed);
     m_position = m_position.operator+(m_velocity.operator*(deltaTime));
    
     m_velocity = m_velocity.operator*(m_frictionModifier);
-
+   
 
 
     for (int i = 0; i < m_components.Length(); i++)
