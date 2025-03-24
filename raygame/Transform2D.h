@@ -3,7 +3,7 @@
 #include "raymath.h"
 #include <Vector2.h>
 #include <Matrix3.h>
-
+#include "raymath.h"
 class Actor;
 
 class Transform2D
@@ -34,7 +34,7 @@ public:
     /// <param name="value">The new world coordinates to place the transform.</param>
     void setWorldPostion(MathLibrary::Vector2 value);
 
-    
+   
 
     
 
@@ -123,7 +123,7 @@ public:
     /// Gets the matrix in local space
     /// </summary>
     MathLibrary::Matrix3* getLocalMatrix();
-
+    float Vector2Length(MathLibrary::Vector2 v);
 
     void Translate(MathLibrary::Vector2 direction);
     void LocalPosition(MathLibrary::Vector2 position);

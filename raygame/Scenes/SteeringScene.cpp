@@ -7,10 +7,10 @@
 #include <iostream>
 void SteeringScene::start()
 {
-
+	Seek seek;
 	Scene::start();
 	player_actor = new Actor(100,50, "player");
-	enemy_actor = new SteeringAgent(100,300, "enemy");
+	enemy_actor = new Actor(100,300, "enemy");
 	
 
 	player_actor->addComponent(new Input(player_actor));
@@ -20,9 +20,9 @@ void SteeringScene::start()
 	
 	
 	
-	Seek* seek = new Seek();
+	
+	enemy_actor->addComponent(new Seek(enemy_actor));;
 	enemy_actor->addComponent(new SpriteComponent(enemy_actor, "Images/enemy.png"));
-	enemy_actor->addComponent(seek);
 	enemy_actor->getTransform()->setScale({ 50,50 });
 	
 	addActor(enemy_actor);
@@ -33,8 +33,11 @@ void SteeringScene::start()
 
 void SteeringScene::update(float deltaTime)
 {
-
+	
+	Seek().UpdateBehavior(deltaTime, enemy_actor, player_actor);
+	
 	Scene::update(deltaTime);
+	
 	
 
 

@@ -233,6 +233,12 @@ MathLibrary::Matrix3* Transform2D::getLocalMatrix()
     return m_localMatrix;
 }
 
+float Transform2D::Vector2Length(MathLibrary::Vector2 v)
+{
+    float result = sqrtf((v.x * v.x) + (v.y * v.y));
+    return result;
+}
+
 void Transform2D::Translate(MathLibrary::Vector2 direction)
 {
 

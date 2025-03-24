@@ -23,6 +23,12 @@ Actor::Actor(float x, float y, const char* name = "Actor")
     m_name = name;
 }
 
+MathLibrary::Vector2 Actor::Truncate(MathLibrary::Vector2 v, float max)
+{
+    float i = max / sqrtf((v.x * v.x) + (v.y * v.y));
+    i = i < 1.0 ? i : 1.0;
+    return v.operator*(i);
+}
 void Actor::start()
 {
     m_started = true;
@@ -44,6 +50,13 @@ void Actor::onCollision(Actor* other)
 void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
+   
+    m_velocity = Truncate(m_velocity.operator+(m_force.operator/(deltaTime)), m_maxSpeed);
+    m_position = m_position.operator+(m_velocity.operator*(deltaTime));
+   
+    m_velocity = m_velocity.operator*(m_frictionModifier);
+
+
 
     for (int i = 0; i < m_components.Length(); i++)
     {
