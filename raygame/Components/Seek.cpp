@@ -46,6 +46,7 @@ void Seek::UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2)
 	MathLibrary::Vector2 steeringForce = desiredVelocity - actor->GetVelocity();
 	//std::cout << actor->GetVelocity().x << std::endl;
 	//std::cout << steeringForce.x << std::endl;
+	std::cout << distance.y << std::endl;
 	actor->AddForce(steeringForce);
 	
 	//return true;
