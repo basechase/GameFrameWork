@@ -62,7 +62,7 @@ public:
    MathLibrary::Vector2 GetVelocity() { return m_velocity; }
    MathLibrary::Vector2 Truncate(MathLibrary::Vector2 v, float max);
    void AddForce(MathLibrary::Vector2 force) { m_force = m_force + force; }
-
+   void AddBehaviour(Behavior* behavior);
     
     // bool removeComponent(const char* componentName);
 

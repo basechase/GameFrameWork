@@ -29,6 +29,10 @@ MathLibrary::Vector2 Actor::Truncate(MathLibrary::Vector2 v, float max)
     i = i < 1.0 ? i : 1.0;
     return v.operator*(i);
 }
+void Actor::AddBehaviour(Behavior* behavior)
+{
+    m_behaviorList.Add(behavior);
+}
 void Actor::start()
 {
     m_started = true;
@@ -50,13 +54,13 @@ void Actor::onCollision(Actor* other)
 void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
-   
+      
     //need to calculate velocity
 
     m_velocity = Truncate(m_velocity.operator+(m_force.operator*(deltaTime)), m_maxSpeed);
     m_position = m_position.operator+(m_velocity.operator*(deltaTime));
     
-   // m_velocity = m_velocity.operator*(m_frictionModifier);
+  //  m_velocity = m_velocity.operator*(m_frictionModifier);
     std::cout << m_velocity.x << std::endl;
 
    
