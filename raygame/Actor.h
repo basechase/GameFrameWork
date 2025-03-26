@@ -61,7 +61,7 @@ public:
    void SetVelocity(MathLibrary::Vector2 velocity) { m_velocity = velocity; }
    MathLibrary::Vector2 GetVelocity() { return m_velocity; }
    MathLibrary::Vector2 Truncate(MathLibrary::Vector2 v, float max);
-   void AddForce(MathLibrary::Vector2 force) { m_force = m_force + force; }
+   void AddForce(MathLibrary::Vector2 force) { m_force.operator+(force); }
    void AddBehaviour(Behavior* behavior);
     
     // bool removeComponent(const char* componentName);
@@ -108,10 +108,10 @@ protected:
     float m_frictionModifier;
     MathLibrary::Vector2 m_position;
     DynamicArray<Behavior*> m_behaviorList;
-    MathLibrary::Vector2 m_force;
+    MathLibrary::Vector2 m_force = {0,0};
     MathLibrary::Vector2 m_velocity;
     const char* m_name;
-    float m_maxSpeed = 0.99f;
+    float m_maxSpeed = 100;
    // Vector2 m_playerPosition;
     bool m_started;
     Transform2D* m_transform;

@@ -63,7 +63,7 @@ void Actor::update(float deltaTime)
   //  m_velocity = m_velocity.operator*(m_frictionModifier);
  //   std::cout << m_velocity.x << std::endl;
 
-   
+    
 
 
     for (int i = 0; i < m_components.Length(); i++)
