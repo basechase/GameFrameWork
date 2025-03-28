@@ -36,7 +36,7 @@ void SteeringScene::update(float deltaTime)
 {
 	//no way this is right but it works
 	Seek().UpdateBehavior(deltaTime, enemy_actor, player_actor);
-	Actor().update(deltaTime);
+
 	Scene::update(deltaTime);
 	
 	
