@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Actors/SteeringAgent.h"
 
 class SteeringScene : public Scene
 {
@@ -10,5 +11,5 @@ class SteeringScene : public Scene
 
 
     Actor* player_actor;
-    Actor* enemy_actor;
+    SteeringAgent* enemy_actor;
 };

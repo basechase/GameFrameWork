@@ -2,7 +2,7 @@
 #include "Components/SpriteComponent.h"
 #include "Transform2D.h"
 #include "Components/Input.h"
-#include "SteeringAgent.h"
+#include "Actors/SteeringAgent.h"
 #include "Components/Seek.h"
 #include <iostream>
 void SteeringScene::start()
@@ -10,9 +10,11 @@ void SteeringScene::start()
 	
 	
 	Scene::start();
+	//SteeringAgent* agent = new SteeringAgent(499, 400, "agent");
 	player_actor = new Actor(100,50, "player");
-	enemy_actor = new Actor(100,300, "enemy");
+	enemy_actor = new SteeringAgent(100,300, "enemy");
 	
+
 
 	player_actor->addComponent(new Input(player_actor));
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));
@@ -23,20 +25,21 @@ void SteeringScene::start()
 	
 	
 	enemy_actor->addComponent(new Seek(enemy_actor));;
-	enemy_actor->addComponent(new SpriteComponent(enemy_actor, "Images/enemy.png"));
+	//enemy_actor->addComponent(new SpriteComponent(enemy_actor, "Images/enemy.png"));
 	enemy_actor->getTransform()->setScale({ 50,50 });
 	
 	addActor(enemy_actor);
-	
+	enemy_actor->draw();
 	addActor(player_actor);
+
 
 }
 
 void SteeringScene::update(float deltaTime)
 {
 	//no way this is right but it works
-	Seek().UpdateBehavior(deltaTime, enemy_actor, player_actor);
-
+	
+	
 	Scene::update(deltaTime);
 	
 	

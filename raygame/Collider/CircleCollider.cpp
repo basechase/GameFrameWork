@@ -1,7 +1,7 @@
 #include "CircleCollider.h"
 #include "AABBCollider.h"
 #include <Vector2.h>
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "Transform2D.h"
 
 CircleCollider::CircleCollider(Actor* owner) : Collider::Collider(owner, ColliderType::CIRCLE)

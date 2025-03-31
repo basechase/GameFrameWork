@@ -147,7 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Collider\AABBCollider.cpp" />
-    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Actors\Actor.cpp" />
     <ClCompile Include="Collider\CircleCollider.cpp" />
     <ClCompile Include="Collider\Collider.cpp" />
     <ClCompile Include="Components\Component.cpp" />
@@ -161,13 +161,13 @@
     <ClCompile Include="Scenes\Scene.cpp" />
     <ClCompile Include="Components\Seek.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
-    <ClCompile Include="SteeringAgent.cpp" />
+    <ClCompile Include="Actors\SteeringAgent.cpp" />
     <ClCompile Include="Scenes\SteeringScene.cpp" />
     <ClCompile Include="Transform2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collider\AABBCollider.h" />
-    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Actors\Actor.h" />
     <ClInclude Include="Collider\CircleCollider.h" />
     <ClInclude Include="Collider\Collider.h" />
     <ClInclude Include="Components\Component.h" />
@@ -185,7 +185,7 @@
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Components\Seek.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
-    <ClInclude Include="SteeringAgent.h" />
+    <ClInclude Include="Actors\SteeringAgent.h" />
     <ClInclude Include="Scenes\SteeringScene.h" />
     <ClInclude Include="Transform2D.h" />
   </ItemGroup>

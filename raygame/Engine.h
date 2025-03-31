@@ -1,7 +1,7 @@
 #pragma once
 #include <Matrix3.h>
 #include "DynamicArray.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 class Camera2D;
 class Scene;
 

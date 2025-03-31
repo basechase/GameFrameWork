@@ -3,7 +3,7 @@
 #include <Matrix3.h>
 #include "Transform2D.h"
 #include "SpriteComponent.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "raylib.h"
 #include <cmath>
 #include <iostream>

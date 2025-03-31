@@ -1,6 +1,6 @@
 #include "AABBCollider.h"
 #include "CircleCollider.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "Transform2D.h"
 
 AABBCollider::AABBCollider(Actor* owner) : Collider::Collider(owner, ColliderType::BOX)

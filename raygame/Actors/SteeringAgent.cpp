@@ -3,7 +3,7 @@
 #include "Transform2D.h"
 #include "raylib.h"
 #include <iostream>
-#include "Actor.h"
+#include "Actors/Actor.h"
 
 SteeringAgent::SteeringAgent(float x, float y, const char* name)
 {
@@ -13,16 +13,19 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 }
 void SteeringAgent::Start()
 {
+	Actor::start();
 	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
 	// add seek component
-	//m_seekComponent = new Seek();
+	m_seekComponent = new Seek();
 
-	// Set the target position (this will need to be linked to your player or target)
+	// Set the target position
 	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
 void SteeringAgent::Update(float deltaTime)
 {
+	Actor::update(deltaTime);
+	std::cout << "steeringagent:working" << std::endl;
 	
 	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) 
 	{

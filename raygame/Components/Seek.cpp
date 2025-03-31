@@ -1,7 +1,7 @@
 #include "Seek.h"
 #include "Pathfinding/PathAgent.h"
 
-#include "SteeringAgent.h"
+#include "Actors/SteeringAgent.h"
 #include "Transform2D.h"
 #include <iostream>
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "Components/Component.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "raylib.h"
 class Input : public Component 
 {

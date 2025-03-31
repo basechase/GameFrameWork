@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Transform2D.h"
 #include "DynamicArray.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 
 Scene::Scene()
 {

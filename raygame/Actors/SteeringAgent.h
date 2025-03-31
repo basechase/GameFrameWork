@@ -1,12 +1,15 @@
 #pragma once
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "Transform2D.h"
 #include "Components/Seek.h"
 
 class SteeringAgent : public Actor
 {
 
-public:
+
+
+
+
 	
 
 	enum States 
@@ -19,13 +22,14 @@ public:
 		evade
 
 	};
+public:
 	SteeringAgent(float x, float y, const char* name);
 	void Start();
-	void Update(float deltaTime);
+	void Update(float deltaTime);   
 	void end();
-
+	void setTarget(Actor* actor) { target_Position = actor->getTransform()->getLocalPosition(); }
 	void changeState(States states);
-public:
+public: 
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
 	MathLibrary::Vector2 target_Position;

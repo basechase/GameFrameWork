@@ -3,7 +3,7 @@
 #include "Transform2D.h"
 #include "Component.h"
 #include "Components/Component.h"
-#include "Actor.h"
+#include "Actors/Actor.h"
 #include "raylib.h"
 class Seek : public Component
 {
@@ -14,6 +14,8 @@ public:
 	~Seek();
 	void UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2);
 	void setTarget(MathLibrary::Vector2 target) { m_targetPosition = target; }
+
+
 	MathLibrary::Vector2 m_targetPosition;
 
 	

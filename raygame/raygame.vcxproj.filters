@@ -20,7 +20,7 @@
     <ClCompile Include="Scenes\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="Actors\Actor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Components\SpriteComponent.cpp">
@@ -62,7 +62,7 @@
     <ClCompile Include="Scenes\SteeringScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SteeringAgent.cpp">
+    <ClCompile Include="Actors\SteeringAgent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Components\Input.cpp">
@@ -73,7 +73,7 @@
     <ClInclude Include="Scenes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
+    <ClInclude Include="Actors\Actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components\SpriteComponent.h">
@@ -130,7 +130,7 @@
     <ClInclude Include="Scenes\SteeringScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SteeringAgent.h">
+    <ClInclude Include="Actors\SteeringAgent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components\Input.h">
