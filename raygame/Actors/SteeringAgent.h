@@ -25,7 +25,7 @@ class SteeringAgent : public Actor
 public:
 	SteeringAgent(float x, float y, const char* name);
 	void Start();
-	void Update(float deltaTime);   
+	void update(float deltaTime);   
 	void end();
 	void setTarget(Actor* actor) { target_Position = actor->getTransform()->getLocalPosition(); }
 	void changeState(States states);

@@ -22,7 +22,7 @@ void SteeringAgent::Start()
 	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
-void SteeringAgent::Update(float deltaTime)
+void SteeringAgent::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 	std::cout << "steeringagent:working" << std::endl;
