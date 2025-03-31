@@ -5,9 +5,6 @@
 #include "Transform2D.h"
 #include <iostream>
 
-Seek::Seek()
-{
-}
 
 
 Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
@@ -20,11 +17,11 @@ Seek::~Seek()
 
 }
 
-void Seek::UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2)
+void Seek::update(float deltaTime)
 {
 	//subtract destination vector and actor vector to get distance
 	// (*m_targetPosition, actor->getTransform()->getLocalPosition())
-	
+	/*
 	MathLibrary::Vector2 distance;
 	
 	MathLibrary::Vector2 actorPosition = actor->getTransform()->getLocalPosition();
@@ -50,6 +47,7 @@ void Seek::UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2)
 	//std::cout << steeringForce.x << std::endl;
 	//std::cout << steeringForce.x << std::endl;
 	actor->AddForce(steeringForce);
+	*/
 	std::cout << "sss" << std::endl;
 
 	

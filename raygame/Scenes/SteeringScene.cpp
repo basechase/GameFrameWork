@@ -10,7 +10,7 @@ void SteeringScene::start()
 	
 	
 	Scene::start();
-	Seek().start();
+	
 	//SteeringAgent* agent = new SteeringAgent(499, 400, "agent");
 	player_actor = new Actor(100,50, "player");
 	enemy_actor = new Actor(100,300, "enemy");
@@ -39,7 +39,7 @@ void SteeringScene::start()
 void SteeringScene::update(float deltaTime)
 {
 	//no way this is right but it works
-	Seek().UpdateBehavior(deltaTime, enemy_actor, player_actor);
+
 	Scene::update(deltaTime);
 	
 	

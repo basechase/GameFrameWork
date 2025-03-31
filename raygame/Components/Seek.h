@@ -9,11 +9,11 @@ class Seek : public Component
 {
 
 public:
-	Seek();
+	
 	//Seek(Actor* owner);
 	Seek(Actor* owner, const char* name = "");
 	~Seek();
-	void UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2);
+	void update(float deltaTime);
 	void setTarget(MathLibrary::Vector2 target) { m_targetPosition = target; }
 
 

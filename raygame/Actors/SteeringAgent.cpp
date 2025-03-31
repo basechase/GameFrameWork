@@ -16,7 +16,7 @@ void SteeringAgent::Start()
 	Actor::start();
 	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
 	// add seek component
-	m_seekComponent = new Seek();
+	//m_seekComponent = new Seek();
 
 	// Set the target position
 	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
@@ -45,7 +45,7 @@ void SteeringAgent::Update(float deltaTime)
 		//call updatebehavior
 		if (m_seekComponent)
 		{
-			m_seekComponent->UpdateBehavior(deltaTime, this, this);
+			//m_seekComponent->UpdateBehavior(deltaTime, this, this);
 		}
 		break;
 		break;

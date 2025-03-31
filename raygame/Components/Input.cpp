@@ -5,7 +5,8 @@
 #include <iostream>
 Input::Input(Actor* owner, const char* name) : Component::Component(owner, name)
 {
-	
+	m_name = name;
+	m_owner = owner;
 	m_speed = 0.03;
 }
 
