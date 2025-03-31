@@ -14,12 +14,11 @@ public:
 	Seek(Actor* owner, const char* name = "");
 	~Seek();
 	void update(float deltaTime);
-
+	void start(Actor* actor);
 	
 	void SetDestination(Actor* targetActor) { m_target = targetActor->getTransform()->getLocalPosition(); }
 	void SetDestination(MathLibrary::Vector2 targetVector) { m_target = targetVector; }
-
-private:
+public:
 	MathLibrary::Vector2 m_target;
 
 	

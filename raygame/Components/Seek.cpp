@@ -6,6 +6,10 @@
 #include <iostream>
 
 
+void Seek::start(Actor* actor)
+{
+	SetDestination(actor->GetActorPosition());
+}
 
 Seek::Seek()
 {
@@ -69,3 +73,4 @@ void Seek::update(float deltaTime)
 	
 	//return true;
 }
+

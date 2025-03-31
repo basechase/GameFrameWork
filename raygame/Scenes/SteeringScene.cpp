@@ -10,10 +10,10 @@ void SteeringScene::start()
 	
 	
 	Scene::start();
-	
 	//SteeringAgent* agent = new SteeringAgent(499, 400, "agent");
 	player_actor = new Actor(100,50, "player");
 	enemy_actor = new Actor(100,300, "enemy");
+	
 	
 
 	player_actor->addComponent(new Input(player_actor));
@@ -32,7 +32,7 @@ void SteeringScene::start()
 	
 	addActor(player_actor);
 
-
+	
 
 }
 
@@ -40,8 +40,9 @@ void SteeringScene::update(float deltaTime)
 {
 	
 	
-	
+
 	Scene::update(deltaTime);
+
 
 	
 	
