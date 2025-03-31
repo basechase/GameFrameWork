@@ -12,4 +12,5 @@ class SteeringScene : public Scene
 
     Actor* player_actor;
     Actor* enemy_actor;
+    
 };

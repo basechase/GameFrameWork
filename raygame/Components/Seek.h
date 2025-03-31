@@ -15,6 +15,10 @@ public:
 	~Seek();
 	void update(float deltaTime);
 
+	void SetDestination(Actor* owner) { m_target = owner->getTransform()->getLocalPosition(); }
+
+private:
+	MathLibrary::Vector2 m_target;
 
 	
 

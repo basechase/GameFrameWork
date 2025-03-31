@@ -9,6 +9,7 @@
 
 Seek::Seek()
 {
+	
 }
 
 Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
@@ -25,11 +26,12 @@ Seek::~Seek()
 void Seek::update(float deltaTime)
 {
 	//m_owner is the agent/AI
-
+	
 
 	MathLibrary::Vector2 distance;
 	MathLibrary::Vector2 actorPosition = m_owner->getTransform()->getLocalPosition();
-	std::cout << actorPosition.x << std::endl;
+	std::cout << m_target.x << std::endl;
+	
 
 
 	//subtract destination vector and actor vector to get distance
