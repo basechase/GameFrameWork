@@ -19,7 +19,7 @@ void SteeringAgent::Start()
 	//m_seekComponent = new Seek();
 
 	// Set the target position
-	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
+	//m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
 void SteeringAgent::update(float deltaTime)
@@ -45,7 +45,7 @@ void SteeringAgent::update(float deltaTime)
 		//call updatebehavior
 		if (m_seekComponent)
 		{
-			//m_seekComponent->UpdateBehavior(deltaTime, this, this);
+			m_seekComponent->update(deltaTime);
 		}
 		break;
 		break;
