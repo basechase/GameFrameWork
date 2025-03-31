@@ -24,10 +24,10 @@ class SteeringAgent : public Actor
 	};
 public:
 	SteeringAgent(float x, float y, const char* name);
-	void Start();
+	void start();
 	void update(float deltaTime);   
 	void end();
-	void setTarget(Actor* actor) { target_Position = actor->getTransform()->getLocalPosition(); }
+	void setTarget(Actor* actor);
 	void changeState(States states);
 public: 
 	Seek* m_seekComponent;

@@ -10,16 +10,17 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	m_transform = new Transform2D(this);
 	m_transform->setLocalPosition({ x,y });
 	m_name = name;
+	SteeringAgent::start();
 }
-void SteeringAgent::Start()
+void SteeringAgent::start()
 {
 	Actor::start();
 	SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
 	// add seek component
-	//m_seekComponent = new Seek();
+	m_seekComponent = new Seek();
 
 	// Set the target position
-	//m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
+	m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
 void SteeringAgent::update(float deltaTime)
@@ -46,6 +47,8 @@ void SteeringAgent::update(float deltaTime)
 		if (m_seekComponent)
 		{
 			m_seekComponent->update(deltaTime);
+		
+			
 		}
 		break;
 		break;
@@ -69,6 +72,12 @@ void SteeringAgent::update(float deltaTime)
 
 void SteeringAgent::end()
 {
+}
+
+void SteeringAgent::setTarget(Actor* actor)
+{
+	
+	target_Position = actor->getTransform()->getLocalPosition();
 }
 
 void SteeringAgent::changeState(States states)

@@ -1,15 +1,12 @@
 #include "Seek.h"
 #include "Pathfinding/PathAgent.h"
-
+#include "raylib.h"
 #include "Actors/SteeringAgent.h"
 #include "Transform2D.h"
 #include <iostream>
 
 
-void Seek::start(Actor* actor)
-{
-	SetDestination(actor->GetActorPosition());
-}
+
 
 Seek::Seek()
 {
@@ -22,6 +19,7 @@ Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
 {
 	m_owner = owner;
 	m_name = name;
+	
 }
 
 Seek::~Seek()
@@ -33,15 +31,28 @@ void Seek::update(float deltaTime)
 {
 	//m_owner is the agent/AI
 	
+	
+	MathLibrary::Vector2 targetPosition;
 
+	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
+	std::cout << "mouse read" << std::endl;
+
+	Vector2 temp = GetMousePosition();
+
+	targetPosition.x = temp.x;
+	targetPosition.y = temp.y;
 	MathLibrary::Vector2 distance;
 	MathLibrary::Vector2 actorPosition = m_owner->getTransform()->getLocalPosition();
-	std::cout << m_target.x << std::endl;
 	
+	
+	distance = targetPosition - actorPosition;
+
+
+	std::cout << distance.x << std::endl;
 
 
 	//subtract destination vector and actor vector to get distance
-	// (*m_targetPosition, actor->getTransform()->getLocalPosition())
+
 	/*
 	
 	MathLibrary::Vector2 targetPosition = actor2->getTransform()->getLocalPosition();
@@ -72,5 +83,12 @@ void Seek::update(float deltaTime)
 	
 	
 	//return true;
+}
+
+void Seek::setTarget(MathLibrary::Vector2 target)
+{
+
+	m_target = target;
+
 }
 

@@ -5,6 +5,7 @@
 #include "Components/Component.h"
 #include "Actors/Actor.h"
 #include "raylib.h"
+#include "Scenes/SteeringScene.h"
 class Seek : public Component
 {
 
@@ -13,11 +14,12 @@ public:
 	//Seek(Actor* owner);
 	Seek(Actor* owner, const char* name = "");
 	~Seek();
-	void update(float deltaTime);
-	void start(Actor* actor);
+	virtual void update (float deltaTime);
+
+	void setTarget(MathLibrary::Vector2 target);
 	
-	void SetDestination(Actor* targetActor) { m_target = targetActor->getTransform()->getLocalPosition(); }
-	void SetDestination(MathLibrary::Vector2 targetVector) { m_target = targetVector; }
+	void SetDestinationActor(Actor* targetActor) { m_target = targetActor->getTransform()->getLocalPosition(); }
+	void SetDestinationVector2(MathLibrary::Vector2 targetVector) { m_target = targetVector; }
 public:
 	MathLibrary::Vector2 m_target;
 

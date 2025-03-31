@@ -37,13 +37,13 @@ void Input::update(float deltaTime)
 
 	if (IsKeyDown(KEY_A))
 	{
-		m_owner->getTransform()->rotate(m_speed/180);
+		m_owner->getTransform()->rotate(m_speed/45);
 
 	}
 
 	if (IsKeyDown(KEY_D))
 	{
-		m_owner->getTransform()->rotate(-m_speed/180);
+		m_owner->getTransform()->rotate(-m_speed/45);
 	}
 }
 

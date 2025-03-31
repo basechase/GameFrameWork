@@ -61,7 +61,7 @@ void Actor::update(float deltaTime)
     m_position = m_position.operator+(m_velocity.operator*(deltaTime));
     
   //  m_velocity = m_velocity.operator*(m_frictionModifier);
- //   std::cout << m_velocity.x << std::endl;
+ //  std::cout << m_velocity.x << std::endl;
 
     
 

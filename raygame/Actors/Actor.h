@@ -11,7 +11,7 @@ class Actor
 public:
     Actor();
     ~Actor();
-
+    friend class Seek;
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="name">The name of this actor.</param>
@@ -60,7 +60,8 @@ public:
 
 
 
-   MathLibrary::Vector2 GetActorPosition() { return m_position; }
+    MathLibrary::Vector2& getPosition() { return m_position; }
+   
    void SetVelocity(MathLibrary::Vector2 velocity) { m_velocity = velocity; }
    MathLibrary::Vector2 GetVelocity() { return m_velocity; }
    MathLibrary::Vector2 Truncate(MathLibrary::Vector2 v, float max);
