@@ -12,6 +12,8 @@ Seek::Seek()
 	
 }
 
+
+
 Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
 {
 	m_owner = owner;
