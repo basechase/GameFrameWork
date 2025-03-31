@@ -10,6 +10,7 @@ class Seek : public Component
 
 public:
 	Seek();
+	//Seek(Actor* owner);
 	Seek(Actor* owner, const char* name = "");
 	~Seek();
 	void UpdateBehavior(float deltaTime, Actor* actor, Actor* actor2);
