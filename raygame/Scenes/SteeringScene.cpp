@@ -11,12 +11,15 @@ void SteeringScene::start()
 	
 	Scene::start();
 	
+	SteeringAgent* agent = new SteeringAgent(400,500, "agent");
 	
-
-	player_actor = new Actor(100,50, "player");
-	enemy_actor = new Actor(100,300, "enemy");
+	Actor* player_actor = new Actor(100, 50, "player");
+	//player_actor = new Actor(100,50, "player");
 	
 	
+	agent->addComponent(new SpriteComponent(agent, "Images/enemy.png"));
+	agent->getTransform()->setScale({ 50,50 });
+	agent->addComponent(new Seek(agent, "agent"));
 
 	player_actor->addComponent(new Input(player_actor, "player"));
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));
@@ -26,12 +29,12 @@ void SteeringScene::start()
 	
 	
 	
-	enemy_actor->addComponent(new Seek(enemy_actor, "enemy"));;
-	enemy_actor->addComponent(new SpriteComponent(enemy_actor, "Images/enemy.png"));
-	enemy_actor->getTransform()->setScale({ 50,50 });
 	
-	addActor(enemy_actor);
+	
 
+	
+
+	addActor(agent);
 	
 
 	addActor(player_actor);

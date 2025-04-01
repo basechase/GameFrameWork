@@ -32,23 +32,17 @@ void Seek::update(float deltaTime)
 	//m_owner is the agent/AI
 	
 	
-	MathLibrary::Vector2 targetPosition;
+	
 
-	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
-	std::cout << "mouse read" << std::endl;
+	
 
-	Vector2 temp = GetMousePosition();
 
-	targetPosition.x = temp.x;
-	targetPosition.y = temp.y;
-	MathLibrary::Vector2 distance;
-	MathLibrary::Vector2 actorPosition = m_owner->getTransform()->getLocalPosition();
 	
 	
-	distance = targetPosition - actorPosition;
+	
 
 
-	std::cout << distance.x << std::endl;
+	std::cout << "seek being called" << std::endl;
 
 
 	//subtract destination vector and actor vector to get distance

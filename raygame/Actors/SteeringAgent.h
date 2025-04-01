@@ -2,10 +2,10 @@
 #include "Actors/Actor.h"
 #include "Transform2D.h"
 #include "Components/Seek.h"
-
+class States;
 class SteeringAgent : public Actor
 {
-
+	friend class Seek;
 
 
 
@@ -24,12 +24,15 @@ class SteeringAgent : public Actor
 	};
 public:
 	SteeringAgent(float x, float y, const char* name);
-	void start();
-	void update(float deltaTime);   
-	void end();
+	virtual void start();
+	virtual void update(float deltaTime);   
+	virtual void end();
 	void setTarget(Actor* actor);
+	void setTarget(MathLibrary::Vector2 vector);
 	void changeState(States states);
+	MathLibrary::Vector2 getTarget() { return target_Position; }
 public: 
+
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
 	MathLibrary::Vector2 target_Position;

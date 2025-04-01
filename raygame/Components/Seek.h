@@ -6,6 +6,7 @@
 #include "Actors/Actor.h"
 #include "raylib.h"
 #include "Scenes/SteeringScene.h"
+#include "Actors/SteeringAgent.h"
 class Seek : public Component
 {
 
@@ -20,9 +21,10 @@ public:
 	
 	void SetDestinationActor(Actor* targetActor) { m_target = targetActor->getTransform()->getLocalPosition(); }
 	void SetDestinationVector2(MathLibrary::Vector2 targetVector) { m_target = targetVector; }
+	//Seek(SteeringAgent* owner);
 public:
 	MathLibrary::Vector2 m_target;
-
+	
 	
 
 };
