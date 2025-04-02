@@ -31,6 +31,8 @@ void Seek::update(float deltaTime)
 {
 	//m_target is rcvd from steering agent
 	
+	MathLibrary::Vector2 distance = m_target - m_agentPosition;
+	std::cout << distance.getMagnitude() << std::endl;
 	
 	
 	//std::cout << distance.x << std::endl;

@@ -29,8 +29,12 @@ public:
 	MathLibrary::Vector2 getTargetPosition() { return target->getTransform()->LocalPosition(); }
 
 	void changeState(States states);
-	
+	void addForce(MathLibrary::Vector2 force) { m_force.operator+(force); }
+
+
 public:
+	MathLibrary::Vector2 force = {0,0};
+
 
 	Seek* m_seekComponent;
 	SteeringAgent* agent;

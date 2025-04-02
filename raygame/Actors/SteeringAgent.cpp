@@ -29,7 +29,6 @@ void SteeringAgent::update(float deltaTime)
 	Actor::update(deltaTime);
 
 	
-	std::cout << m_transform->LocalPosition().x << std::endl;
 
 	
 	currentState = seek;
@@ -40,9 +39,11 @@ void SteeringAgent::update(float deltaTime)
 		//call updatebehavior
 		if (m_seekComponent)
 		{
+			
 			m_seekComponent->update(deltaTime);
 			m_seekComponent->setTarget(getTargetPosition());
-			
+			m_seekComponent->m_agentPosition = m_transform->LocalPosition();
+		
 		}
 		break;
 

@@ -28,7 +28,8 @@ public:
 	
 public:
 	MathLibrary::Vector2 m_target;
-	
+	MathLibrary::Vector2 m_agentPosition;
+	MathLibrary::Vector2 m_force;
 	
 
 };
