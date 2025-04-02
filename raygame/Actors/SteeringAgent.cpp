@@ -73,17 +73,6 @@ void SteeringAgent::end()
 {
 }
 
-void SteeringAgent::setTarget(Actor* actor)
-{
-	
-	m_seekComponent->m_target = actor->getTransform()->getLocalPosition();
-}
-
-void SteeringAgent::setTarget(MathLibrary::Vector2 vector)
-{
-	m_seekComponent->m_target = vector;
-}
-
 void SteeringAgent::changeState(States states)
 {
 }

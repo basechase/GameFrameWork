@@ -28,10 +28,13 @@ public:
 	virtual void start();
 	virtual void update(float deltaTime);   
 	virtual void end();
-	void setTarget(Actor* actor);
-	void setTarget(MathLibrary::Vector2 vector);
+	
+	
+	void setTarget(Actor* actor) { target_Position = actor->getTransform()->LocalPosition(); }
+	
+
 	void changeState(States states);
-	MathLibrary::Vector2 getTarget() { return target_Position; }
+	
 public: 
 
 	Seek* m_seekComponent;

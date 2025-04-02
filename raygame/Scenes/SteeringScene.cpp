@@ -18,7 +18,7 @@ void SteeringScene::start()
 	
 	
 	agent->getTransform()->setScale({ 50,50 });
-	
+	agent->setTarget(player_actor);
 
 
 	player_actor->addComponent(new Input(player_actor, "player"));
@@ -28,7 +28,6 @@ void SteeringScene::start()
 	// LocalPosition().x
 	
 	
-	std::cout << player_actor->getTransform()->LocalPosition().x << std::endl;
 	
 	
 
@@ -39,7 +38,7 @@ void SteeringScene::start()
 
 	addActor(player_actor);
 
-
+	std::cout << agent->target_Position.x << std::endl;
 	
 	
 }
