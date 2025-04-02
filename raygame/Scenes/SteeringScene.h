@@ -16,8 +16,8 @@ public:
     MathLibrary::Vector2 playerPosition(Actor* actor);
 
    
-    Actor* player_actor;
+  //  Actor* player_actor;
     MathLibrary::Vector2 player_pos;
-    Actor* enemy_actor;
+   // Actor* enemy_actor;
     
 };

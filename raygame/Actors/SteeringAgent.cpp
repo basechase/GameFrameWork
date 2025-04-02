@@ -13,7 +13,9 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	m_transform = new Transform2D(this);
 	m_transform->setLocalPosition({ x,y });
 	m_name = name;
-	
+	m_seekComponent = new Seek();
+
+	addComponent(new SpriteComponent(this, "Images/enemy.png"));
 }
 void SteeringAgent::start()
 {
@@ -23,7 +25,6 @@ void SteeringAgent::start()
 
 	// add seek component
 	
-	m_seekComponent = new Seek();
 
 	// Set the target position
 	//m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
@@ -34,12 +35,7 @@ void SteeringAgent::update(float deltaTime)
 	Actor::update(deltaTime);
 	
 	
-	m_seekComponent->update(deltaTime);
-		Vector2 temp = GetMousePosition();
-		target_Position.x = temp.x;
-		target_Position.y = temp.y;
-	m_seekComponent->setTarget(m_seekComponent->m_target);
-		
+
 	
 	currentState = seek;
 	switch (currentState)

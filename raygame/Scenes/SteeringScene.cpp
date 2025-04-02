@@ -14,22 +14,21 @@ void SteeringScene::start()
 	SteeringAgent* agent = new SteeringAgent(400,500, "agent");
 	
 	Actor* player_actor = new Actor(100, 50, "player");
-	//player_actor = new Actor(100,50, "player");
 	
 	
-	agent->addComponent(new SpriteComponent(agent, "Images/enemy.png"));
+	
 	agent->getTransform()->setScale({ 50,50 });
-	agent->setTarget(player_actor->getTransform()->getLocalPosition());
+	
 
 
 	player_actor->addComponent(new Input(player_actor, "player"));
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));
 	player_actor->getTransform()->setScale({ 50,50 });
 	
+	// LocalPosition().x
 	
 	
-	
-	
+	std::cout << player_actor->getTransform()->LocalPosition().x << std::endl;
 	
 	
 
@@ -40,14 +39,14 @@ void SteeringScene::start()
 
 	addActor(player_actor);
 
+
 	
 	
 }
 
 void SteeringScene::update(float deltaTime)
 {
-	player_pos = player_actor->getTransform()->getLocalPosition();
-	std::cout << player_pos.x << std::endl;
+	
 	
 	
 	Scene::update(deltaTime);

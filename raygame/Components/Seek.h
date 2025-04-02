@@ -15,7 +15,7 @@ public:
 	
 	Seek();
 	//Seek(Actor* owner);
-	Seek(Actor* owner, Actor* target, const char* name = "");
+	Seek(Actor* owner,  const char* name = "");
 	~Seek();
 	virtual void update (float deltaTime);
 
