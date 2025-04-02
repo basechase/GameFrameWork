@@ -65,7 +65,7 @@ public:
    void SetVelocity(MathLibrary::Vector2 velocity) { m_velocity = velocity; }
    MathLibrary::Vector2 GetVelocity() { return m_velocity; }
    MathLibrary::Vector2 Truncate(MathLibrary::Vector2 v, float max);
-   void AddForce(MathLibrary::Vector2 force) { m_force.operator+(force); }
+   
    void AddBehaviour(Behavior* behavior);
     
     // bool removeComponent(const char* componentName);
@@ -108,11 +108,11 @@ public:
     /// <param name="other">The actor this actor collided with.</param>
     virtual void onCollision(Actor* other);
 
-protected:
+public:
     float m_frictionModifier;
     MathLibrary::Vector2 m_position;
     DynamicArray<Behavior*> m_behaviorList;
-    MathLibrary::Vector2 m_force = {0,0};
+  
     MathLibrary::Vector2 m_velocity;
     const char* m_name;
     float m_maxSpeed = 100;
