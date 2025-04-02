@@ -44,8 +44,8 @@ void SteeringScene::start()
 
 void SteeringScene::update(float deltaTime)
 {
-	
-	
+		
+
 	
 	
 	Scene::update(deltaTime);

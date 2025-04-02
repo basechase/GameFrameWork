@@ -17,7 +17,7 @@ public:
 
    
   // Actor* player_actor;
-    MathLibrary::Vector2 player_pos;
+    
    // Actor* enemy_actor;
    // SteeringAgent* agent;
     

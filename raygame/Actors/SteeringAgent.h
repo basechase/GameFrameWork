@@ -5,11 +5,6 @@
 
 class SteeringAgent : public Actor
 {
-	friend class Seek;
-
-
-
-
 	
 
 	enum States 
@@ -30,16 +25,17 @@ public:
 	virtual void end();
 	
 	
-	void setTarget(Actor* actor) { target_Position = actor->getTransform()->LocalPosition(); }
-	
+	void setTarget(Actor* actor) { target = actor; }
+	MathLibrary::Vector2 getTargetPosition() { return target->getTransform()->LocalPosition(); }
 
 	void changeState(States states);
 	
-public: 
+public:
 
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
 	MathLibrary::Vector2 distance;
+	Actor* target;
 	MathLibrary::Vector2 target_Position;
 	MathLibrary::Vector2 agent_Position;
 	States currentState;

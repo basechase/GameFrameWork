@@ -21,21 +21,15 @@ void SteeringAgent::start()
 {
 	
 
-	//SpriteComponent* sprite = new SpriteComponent(this, "Images/enemy.png");
-
-	// add seek component
 	
-
-	// Set the target position
-	//m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
 }
 
 void SteeringAgent::update(float deltaTime)
 {
 	Actor::update(deltaTime);
-	
-	
 
+	
+	std::cout << m_transform->LocalPosition().x << std::endl;
 
 	
 	currentState = seek;
@@ -47,7 +41,7 @@ void SteeringAgent::update(float deltaTime)
 		if (m_seekComponent)
 		{
 			m_seekComponent->update(deltaTime);
-			m_seekComponent->setTarget(target_Position);
+			m_seekComponent->setTarget(getTargetPosition());
 			
 		}
 		break;
