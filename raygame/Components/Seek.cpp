@@ -15,10 +15,9 @@ Seek::Seek()
 
 
 
-Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
+Seek::Seek(Actor* owner)
 {
 	m_owner = owner;
-	m_name = name;
 	
 }
 
@@ -27,61 +26,42 @@ Seek::~Seek()
 
 }
 
-void Seek::update(float deltaTime)
+void Seek::updateBehavior(float deltaTime)
 {
-	//m_target is rcvd from steering agent
-	
-	MathLibrary::Vector2 v = m_target - m_agentPosition;
-	float distanceCheat = v.getMagnitude();
+	//this behavior goes at max speed always
+	MathLibrary::Vector2 displacement = m_target - m_agentPosition;
 
-	MathLibrary::Vector2 distance = m_agentPosition - m_target;
-	MathLibrary::Vector2 desiredVelocity;
-	desiredVelocity = distance.operator*(100);
-	
+	MathLibrary::Vector2 direction = displacement.getNormalized();
 
-	
-	
-	//std::cout << distance.x << std::endl;
-	
-	//subtract destination vector and actor vector to get distance
+	MathLibrary::Vector2 steeredDirection = direction + getSteeringForce(direction);
 
-	/*
-	
-	MathLibrary::Vector2 targetPosition = actor2->getTransform()->getLocalPosition();
+	MathLibrary::Vector2 seekVelocity = steeredDirection * m_speed * deltaTime;
 
-
-	distance = targetPosition - actorPosition;
-	//scale distances normailzed vector by the actors max speed
-	
-	Vector2 raylib;
-	
+	//apply to the agent
+	m_owner->moveActor(seekVelocity);
 	
 
-
-	raylib.x = actor->getTransform()->getLocalPosition().x;
-	raylib.y = actor->getTransform()->getLocalPosition().y;
-
-	DrawCircleV(raylib, 50, RED);
-	//subtract the desired velovity by the agents current velocity to get it's steering force
-	MathLibrary::Vector2 normalizedDistance = distance.getNormalized();
-
-	MathLibrary::Vector2 desiredVelocity = normalizedDistance.operator*(actor->GetMaxSpeed());
-	MathLibrary::Vector2 steeringForce = desiredVelocity - actor->GetVelocity();
-	//std::cout << actor->GetVelocity().x << std::endl;
-	//std::cout << steeringForce.x << std::endl;
-	//std::cout << steeringForce.x << std::endl;
-	actor->AddForce(steeringForce);
-	*/
-
-	
-	
-	//return true;
 }
+
+
 
 void Seek::setTarget(MathLibrary::Vector2 target)
 {
 
 	m_target = target;
 
+}
+
+MathLibrary::Vector2 Seek::getSteeringForce(MathLibrary::Vector2 targetDirection)
+{
+	// targetDirection and ownerdirection have to be normalized
+	MathLibrary::Vector2 result = targetDirection.normalize() - m_owner->getTransform()->getForward().normalize();
+	
+
+	//my forward
+	//minus
+	//desired forward
+	
+	return result;
 }
 

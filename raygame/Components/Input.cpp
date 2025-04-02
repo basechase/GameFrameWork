@@ -25,13 +25,14 @@ void Input::update(float deltaTime)
 	if (IsKeyDown(KEY_W))
 	{
 		//std::cout << "read" << std::endl;
-		m_owner->getTransform()->Translate(m_owner->getTransform()->getForward() * m_speed);
+		
+		m_owner->moveActor(m_owner->getTransform()->getForward() * m_speed);
 		
 	}
 
 	if (IsKeyDown(KEY_S))
 	{
-		m_owner->getTransform()->Translate(m_owner->getTransform()->getForward() * -m_speed);
+		m_owner->moveActor(m_owner->getTransform()->getForward() * -m_speed);
 
 	}
 

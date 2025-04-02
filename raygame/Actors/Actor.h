@@ -52,7 +52,7 @@ public:
     /// 
     
     template <typename T>
-   T* getComponent(T* componentName);
+   T* getComponent();
     template <typename T>
     T* addComponent(T* component);
     float GetMaxSpeed() { return m_maxSpeed; }
@@ -107,7 +107,7 @@ public:
     /// </summary>
     /// <param name="other">The actor this actor collided with.</param>
     virtual void onCollision(Actor* other);
-
+    void moveActor(MathLibrary::Vector2 movement);
 public:
     float m_frictionModifier;
     MathLibrary::Vector2 m_position;
@@ -124,14 +124,13 @@ public:
     Actor* m_owner;
 };
 template<typename T>
-
-inline T* Actor::getComponent(T* componentName)
+inline T* Actor::getComponent()
 {
     //Iterate through all of the components in the array.
     for (int i = 0; i < m_components.Length(); i++)
     {
         //If the component name matches the name given...
-        if (m_components[i]->getName() == componentName)
+        if (dynamic_cast<T>(m_components[i]))
         {
             //...return the component.
             return m_components[i];

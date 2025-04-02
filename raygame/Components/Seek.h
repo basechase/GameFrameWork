@@ -8,21 +8,21 @@
 #include "Scenes/SteeringScene.h"
 #include "Actors/SteeringAgent.h"
 class SteeringAgent;
-class Seek : public Component
+class Seek
 {
 
 public:
 	
 	Seek();
 
-	Seek(Actor* owner,  const char* name = "");
+	Seek(Actor* owner);
 	~Seek();
-	virtual void update (float deltaTime);
+	void updateBehavior (float deltaTime);
 
 	void setTarget(MathLibrary::Vector2 target);
 	
 	
-	
+	MathLibrary::Vector2 getSteeringForce(MathLibrary::Vector2 targetDirection);
 
 
 	
@@ -30,6 +30,10 @@ public:
 	MathLibrary::Vector2 m_target;
 	MathLibrary::Vector2 m_agentPosition;
 	MathLibrary::Vector2 m_force;
+
+	float m_speed = 50;
+
+	Actor* m_owner;
 	
 
 };
