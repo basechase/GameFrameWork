@@ -112,8 +112,8 @@ public:
     float m_frictionModifier;
     MathLibrary::Vector2 m_position;
     DynamicArray<Behavior*> m_behaviorList;
-  
-    MathLibrary::Vector2 m_velocity;
+    MathLibrary::Vector2 m_force = { 0,0 };
+    MathLibrary::Vector2 m_velocity = {0,0};
     const char* m_name;
     float m_maxSpeed = 100;
    // Vector2 m_playerPosition;

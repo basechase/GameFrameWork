@@ -56,8 +56,16 @@ void Actor::update(float deltaTime)
     m_transform->updateTransforms();
       
     //need to calculate velocity
+   // velocity = change in distance/ change in time
 
-   
+    
+    m_velocity = Truncate(m_velocity.operator+(m_force.operator*(deltaTime)), m_maxSpeed);
+    m_position = m_position.operator+(m_velocity.operator*(deltaTime));
+    
+  //  m_velocity = m_velocity.operator*(m_frictionModifier);
+ //  std::cout << m_velocity.x << std::endl;
+
+    
 
 
     for (int i = 0; i < m_components.Length(); i++)

@@ -29,12 +29,12 @@ public:
 	MathLibrary::Vector2 getTargetPosition() { return target->getTransform()->LocalPosition(); }
 
 	void changeState(States states);
-
+	float getMaxSpeed() { return m_maxSpeed; }
 
 
 public:
 	MathLibrary::Vector2 force = {0,0};
-
+	float m_maxSpeed = 100;
 
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
