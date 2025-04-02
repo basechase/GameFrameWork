@@ -30,7 +30,7 @@ Seek::~Seek()
 void Seek::update(float deltaTime)
 {
 		//m_target is rcvd from steering agent
-
+	std::cout << m_target.x << std::endl;
 	
 	//subtract destination vector and actor vector to get distance
 

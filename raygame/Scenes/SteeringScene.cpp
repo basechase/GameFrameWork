@@ -18,7 +18,6 @@ void SteeringScene::start()
 	
 	
 	agent->getTransform()->setScale({ 50,50 });
-	agent->setTarget(player_actor);
 
 
 	player_actor->addComponent(new Input(player_actor, "player"));
@@ -37,7 +36,7 @@ void SteeringScene::start()
 	
 
 	addActor(player_actor);
-
+	agent->setTarget(player_actor);
 	
 	
 	
@@ -45,6 +44,7 @@ void SteeringScene::start()
 
 void SteeringScene::update(float deltaTime)
 {
+	
 	
 	
 	
