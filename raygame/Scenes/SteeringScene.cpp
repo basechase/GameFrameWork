@@ -38,7 +38,7 @@ void SteeringScene::start()
 
 	addActor(player_actor);
 
-	std::cout << agent->target_Position.x << std::endl;
+	
 	
 	
 }

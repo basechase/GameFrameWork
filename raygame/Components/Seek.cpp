@@ -30,7 +30,7 @@ Seek::~Seek()
 void Seek::update(float deltaTime)
 {
 	//m_owner is the agent/AI
-	
+	std::cout << m_target.x << std::endl;
 	
 	
 

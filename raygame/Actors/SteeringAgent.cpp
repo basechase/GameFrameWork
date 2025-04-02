@@ -46,7 +46,7 @@ void SteeringAgent::update(float deltaTime)
 		if (m_seekComponent)
 		{
 			m_seekComponent->update(deltaTime);
-		
+			m_seekComponent->m_target = target_Position;
 			
 		}
 		break;
