@@ -80,12 +80,12 @@ void SteeringAgent::end()
 void SteeringAgent::setTarget(Actor* actor)
 {
 	
-	target_Position = actor->getTransform()->getLocalPosition();
+	m_seekComponent->m_target = actor->getTransform()->getLocalPosition();
 }
 
 void SteeringAgent::setTarget(MathLibrary::Vector2 vector)
 {
-	target_Position = vector;
+	m_seekComponent->m_target = vector;
 }
 
 void SteeringAgent::changeState(States states)

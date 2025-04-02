@@ -5,6 +5,7 @@
 #include "Components/Seek.h"
 class SteeringScene : public Scene
 {
+public:
     friend Seek;
     void start() override;
 
@@ -16,7 +17,7 @@ class SteeringScene : public Scene
 
    
     Actor* player_actor;
-   
+    MathLibrary::Vector2 player_pos;
     Actor* enemy_actor;
     
 };
