@@ -39,6 +39,7 @@ public:
 
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
+	MathLibrary::Vector2 distance;
 	MathLibrary::Vector2 target_Position;
 	MathLibrary::Vector2 agent_Position;
 	States currentState;

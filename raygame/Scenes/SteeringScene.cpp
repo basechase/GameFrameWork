@@ -11,7 +11,7 @@ void SteeringScene::start()
 	
 	Scene::start();
 	
-	SteeringAgent* agent = new SteeringAgent(400,500, "agent");
+	SteeringAgent* agent = new SteeringAgent(500,500, "agent");
 	
 	Actor* player_actor = new Actor(100, 50, "player");
 	
