@@ -19,7 +19,7 @@ void SteeringScene::start()
 	
 	agent->addComponent(new SpriteComponent(agent, "Images/enemy.png"));
 	agent->getTransform()->setScale({ 50,50 });
-	agent->addComponent(new Seek(agent, "agent"));
+
 
 	player_actor->addComponent(new Input(player_actor, "player"));
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));

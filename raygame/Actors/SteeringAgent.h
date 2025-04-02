@@ -2,7 +2,7 @@
 #include "Actors/Actor.h"
 #include "Transform2D.h"
 #include "Components/Seek.h"
-class States;
+
 class SteeringAgent : public Actor
 {
 	friend class Seek;
@@ -23,6 +23,7 @@ class SteeringAgent : public Actor
 
 	};
 public:
+
 	SteeringAgent(float x, float y, const char* name);
 	virtual void start();
 	virtual void update(float deltaTime);   

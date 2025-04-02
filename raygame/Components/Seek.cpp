@@ -4,7 +4,7 @@
 #include "Actors/SteeringAgent.h"
 #include "Transform2D.h"
 #include <iostream>
-
+#include "Actors/SteeringAgent.h"
 
 
 
@@ -15,7 +15,7 @@ Seek::Seek()
 
 
 
-Seek::Seek(Actor* owner, const char* name) : Component::Component(owner, name)
+Seek::Seek(Actor* owner, Actor* target, const char* name) : Component::Component(owner, name)
 {
 	m_owner = owner;
 	m_name = name;
@@ -33,14 +33,13 @@ void Seek::update(float deltaTime)
 	
 	
 	
-
-	
-
-
-	
 	
 	
 
+	
+	
+	
+	
 
 	std::cout << "seek being called" << std::endl;
 

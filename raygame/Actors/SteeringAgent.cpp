@@ -5,6 +5,8 @@
 #include <iostream>
 #include "Actors/Actor.h"
 
+
+
 SteeringAgent::SteeringAgent(float x, float y, const char* name)
 {
 	
@@ -21,6 +23,7 @@ void SteeringAgent::start()
 
 	// add seek component
 	
+	m_seekComponent = new Seek();
 
 	// Set the target position
 	//m_seekComponent->setTarget(m_owner->getTransform()->getLocalPosition());
@@ -31,12 +34,11 @@ void SteeringAgent::update(float deltaTime)
 	Actor::update(deltaTime);
 	
 	
-	
-		
+	m_seekComponent->update(deltaTime);
 		Vector2 temp = GetMousePosition();
 		target_Position.x = temp.x;
 		target_Position.y = temp.y;
-		std::cout << target_Position.x << std::endl;
+	m_seekComponent->setTarget(m_seekComponent->m_target);
 		
 	
 	currentState = seek;
