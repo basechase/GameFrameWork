@@ -30,10 +30,18 @@ void SteeringAgent::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
+	float distance = (getTargetPosition() - m_transform->LocalPosition()).getMagnitude();
+	std::cout << distance << std::endl;
+	if (distance > 400) 
+	{
+		currentState = SteeringAgent::seek;
+	}
+	else if (distance < 400)
+	{
+		currentState = SteeringAgent::flee;
+	}
 	
 	
-	
-	currentState = seek;
 	switch (currentState)
 	{
 	case SteeringAgent::seek:
@@ -41,6 +49,7 @@ void SteeringAgent::update(float deltaTime)
 		//call updatebehavior
 		if (m_seekComponent)
 		{
+			
 			m_seekComponent->updateBehavior(deltaTime);
 			m_seekComponent->setTarget(getTargetPosition());
 			m_seekComponent->m_agentPosition = m_transform->LocalPosition();
