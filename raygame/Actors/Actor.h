@@ -12,6 +12,7 @@ public:
     Actor();
     ~Actor();
     friend class Seek;
+    friend class Wander;
     /// <param name="x">Position on the x axis</param>
     /// <param name="y">Position on the y axis</param>
     /// <param name="name">The name of this actor.</param>

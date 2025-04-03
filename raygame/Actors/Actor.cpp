@@ -54,7 +54,7 @@ void Actor::onCollision(Actor* other)
 void Actor::moveActor(MathLibrary::Vector2 movement)
 {
     getTransform()->Translate(movement);
-
+    
 }
 
 void Actor::update(float deltaTime)

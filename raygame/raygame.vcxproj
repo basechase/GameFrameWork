@@ -152,6 +152,7 @@
     <ClCompile Include="Collider\Collider.cpp" />
     <ClCompile Include="Components\Component.cpp" />
     <ClCompile Include="Components\Flee.cpp" />
+    <ClCompile Include="Components\Wander.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Components\Input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Collider\Collider.h" />
     <ClInclude Include="Components\Component.h" />
     <ClInclude Include="Components\Flee.h" />
+    <ClInclude Include="Components\Wander.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Components\Input.h" />

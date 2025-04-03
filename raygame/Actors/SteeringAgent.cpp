@@ -14,6 +14,7 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	m_transform->setLocalPosition({ x,y });
 	m_name = name;
 	
+	m_wanderComponent = new Wander(this);
 	m_fleeComponent = new Flee(this);
 	m_seekComponent = new Seek(this);
 	addComponent(new SpriteComponent(this, "Images/enemy.png"));
@@ -29,9 +30,8 @@ void SteeringAgent::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 
-	
 
-	currentState = flee;
+	currentState = seek;
 	switch (currentState)
 	{
 	case SteeringAgent::seek:
@@ -46,6 +46,10 @@ void SteeringAgent::update(float deltaTime)
 		break;
 
 	case SteeringAgent::wander:
+		if(m_wanderComponent)
+		m_wanderComponent->updateBehavior(deltaTime);
+		m_wanderComponent->setTarget(getTargetPosition());
+		m_wanderComponent->m_agentPosition = m_transform->LocalPosition();
 		break;
 	case SteeringAgent::arrive:
 		break;
@@ -73,5 +77,6 @@ void SteeringAgent::end()
 
 void SteeringAgent::changeState(States states)
 {
+	currentState = states;
 }
 

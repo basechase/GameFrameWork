@@ -3,7 +3,7 @@
 #include "Transform2D.h"
 #include "Components/Seek.h"
 #include "Components/Flee.h"
-
+#include "Components/Wander.h"
 class SteeringAgent : public Actor
 {
 	
@@ -36,6 +36,7 @@ public:
 public:
 	MathLibrary::Vector2 force = {0,0};
 	float m_maxSpeed = 100;
+	Wander* m_wanderComponent;
 	Flee* m_fleeComponent;
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
