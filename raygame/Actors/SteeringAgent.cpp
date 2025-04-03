@@ -18,6 +18,7 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	m_fleeComponent = new Flee(this);
 	m_seekComponent = new Seek(this);
 	addComponent(new SpriteComponent(this, "Images/enemy.png"));
+	currentState = SteeringAgent::seek;
 }
 void SteeringAgent::start()
 {
@@ -32,14 +33,9 @@ void SteeringAgent::update(float deltaTime)
 
 	float distance = (getTargetPosition() - m_transform->LocalPosition()).getMagnitude();
 	std::cout << distance << std::endl;
-	if (distance > 400) 
-	{
-		currentState = SteeringAgent::seek;
-	}
-	else if (distance < 400)
-	{
-		currentState = SteeringAgent::flee;
-	}
+
+	
+
 	
 	
 	switch (currentState)
@@ -53,7 +49,10 @@ void SteeringAgent::update(float deltaTime)
 			m_seekComponent->updateBehavior(deltaTime);
 			m_seekComponent->setTarget(getTargetPosition());
 			m_seekComponent->m_agentPosition = m_transform->LocalPosition();
-			
+			if (distance < 120)
+			{
+				currentState = SteeringAgent::flee;
+			}
 		
 		}
 		break;
@@ -62,6 +61,12 @@ void SteeringAgent::update(float deltaTime)
 		m_wanderComponent->updateBehavior(deltaTime);
 		m_wanderComponent->setTarget(getTargetPosition());
 		m_wanderComponent->m_agentPosition = m_transform->LocalPosition();
+
+		if (distance < 200)
+		{
+
+			currentState = SteeringAgent::seek;
+		}
 		break;
 	case SteeringAgent::arrive:
 		break;
@@ -73,6 +78,11 @@ void SteeringAgent::update(float deltaTime)
 			m_fleeComponent->updateBehavior(deltaTime);
 			m_fleeComponent->setTarget(getTargetPosition());
 			m_fleeComponent->m_agentPosition = m_transform->LocalPosition();
+			if (distance > 250)
+			{
+				currentState = SteeringAgent::wander;
+			}
+		
 	case SteeringAgent::evade:
 		break;
 	default:

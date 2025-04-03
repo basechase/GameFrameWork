@@ -39,7 +39,7 @@ void Wander::updateBehavior(float deltaTime)
 	
 	m_owner->moveActor(wanderForce);
 	m_owner->getTransform()->setForward(wanderForce);
-	
+	std::cout << "wandering" << std::endl;
 }
 
 MathLibrary::Vector2 Wander::getSteeringForce(MathLibrary::Vector2 targetDirection)
