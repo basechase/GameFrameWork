@@ -32,7 +32,7 @@ void SteeringAgent::update(float deltaTime)
 	Actor::update(deltaTime);
 
 	float distance = (getTargetPosition() - m_transform->LocalPosition()).getMagnitude();
-	std::cout << distance << std::endl;
+	//std::cout << distance << std::endl;
 
 	
 
