@@ -30,7 +30,7 @@ public:
 	MathLibrary::Vector2 m_target;
 	MathLibrary::Vector2 m_agentPosition;
 	MathLibrary::Vector2 m_force;
-
+	float distance;
 	float m_speed = 50;
 
 	Actor* m_owner;

@@ -38,7 +38,7 @@ void Wander::updateBehavior(float deltaTime)
 	
 	
 	m_owner->moveActor(wanderForce);
-	
+	m_owner->getTransform()->setForward(wanderForce);
 	
 }
 

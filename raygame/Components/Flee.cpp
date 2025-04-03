@@ -25,7 +25,7 @@ void Flee::updateBehavior(float deltaTime)
 
 	//apply to the agent
 	m_owner->moveActor(seekVelocity);
-
+	m_owner->getTransform()->setForward(seekVelocity);
 	std::cout << "working" << std::endl;
 }
 

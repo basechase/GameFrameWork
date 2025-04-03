@@ -29,6 +29,8 @@ Seek::~Seek()
 void Seek::updateBehavior(float deltaTime)
 {
 	//this behavior goes at max speed always
+	float distance = (m_target - m_agentPosition).getMagnitude();
+	
 	MathLibrary::Vector2 displacement = m_target - m_agentPosition;
 
 	MathLibrary::Vector2 direction = displacement.getNormalized();
@@ -41,6 +43,10 @@ void Seek::updateBehavior(float deltaTime)
 	m_owner->moveActor(seekVelocity);
 	m_owner->getTransform()->setForward(seekVelocity);
 
+	if (distance < 50)
+	{
+		std::cout << "Within 50" << std::endl;
+	}
 }
 
 
