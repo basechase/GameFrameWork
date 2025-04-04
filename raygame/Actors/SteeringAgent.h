@@ -44,7 +44,7 @@ public:
 	Flee* m_fleeComponent;
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
-
+	Blackboard* blackboard;
 	Actor* target;
 	MathLibrary::Vector2 target_Position;
 	MathLibrary::Vector2 agent_Position;

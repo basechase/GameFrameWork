@@ -14,13 +14,14 @@ enum class BlackboardItemType
 class Blackboard 
 {
 public:
-	Blackboard();
+	Blackboard() {}
+	Blackboard(Actor* owner);
 	~Blackboard();
 	
-	bool setVector(MathLibrary::Vector2);
-	void setDistance(float distance);
-	
+	Actor* m_owner;
 
+	
+	
 private: 
 	struct BlackBoardItem {
 		BlackboardItemType type;

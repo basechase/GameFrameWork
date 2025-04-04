@@ -22,6 +22,7 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	
 }
 
+
 void SteeringAgent::start()
 {
 	
@@ -36,9 +37,6 @@ void SteeringAgent::update(float deltaTime)
 	float distance = (getTargetPosition() - m_transform->LocalPosition()).getMagnitude();
 	//std::cout << distance << std::endl;
 
-	
-
-	
 	
 	switch (currentState)
 	{

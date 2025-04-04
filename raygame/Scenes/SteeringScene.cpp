@@ -10,7 +10,6 @@ void SteeringScene::start()
 	
 	
 	Scene::start();
-	
 	SteeringAgent* agent = new SteeringAgent(200,500, "agent");
 	
 	Actor* player_actor = new Actor(100, 50, "player");
@@ -18,6 +17,7 @@ void SteeringScene::start()
 	
 	
 	agent->getTransform()->setScale({ 50,50 });
+	blackboard = new Blackboard(agent);
 
 
 	player_actor->addComponent(new Input(player_actor, "player"));
@@ -45,7 +45,7 @@ void SteeringScene::start()
 void SteeringScene::update(float deltaTime)
 {
 		
-	
+	std::cout << blackboard->m_owner->getTransform()->LocalPosition().x << std::endl;
 	
 	
 	Scene::update(deltaTime);
