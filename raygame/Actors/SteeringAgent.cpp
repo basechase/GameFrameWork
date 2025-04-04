@@ -6,7 +6,6 @@
 #include "Actors/Actor.h"
 
 
-
 SteeringAgent::SteeringAgent(float x, float y, const char* name)
 {
 	
@@ -18,8 +17,11 @@ SteeringAgent::SteeringAgent(float x, float y, const char* name)
 	m_fleeComponent = new Flee(this);
 	m_seekComponent = new Seek(this);
 	addComponent(new SpriteComponent(this, "Images/enemy.png"));
+	//make sure the start is seek and not in the updat loop
 	currentState = SteeringAgent::seek;
+	
 }
+
 void SteeringAgent::start()
 {
 	
@@ -30,7 +32,7 @@ void SteeringAgent::start()
 void SteeringAgent::update(float deltaTime)
 {
 	Actor::update(deltaTime);
-
+	
 	float distance = (getTargetPosition() - m_transform->LocalPosition()).getMagnitude();
 	//std::cout << distance << std::endl;
 

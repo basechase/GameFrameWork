@@ -74,6 +74,9 @@
     <ClCompile Include="Components\Wander.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BlackBoard\BlackBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scenes\Scene.h">
@@ -146,6 +149,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components\Wander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackBoard\BlackBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

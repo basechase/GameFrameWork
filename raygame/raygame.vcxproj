@@ -83,8 +83,8 @@
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName);$(SolutionDir)MathLibrary</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MathLibrary.lib;raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -99,8 +99,8 @@
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>raylib_static.lib;winmm.lib;MathLibrary.lib; %(AdditionalDependencies); </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName);$(SolutionDir)MathLibrary</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MathLibrary.lib;raylib_static.lib;winmm.lib;MathLibrary.lib; %(AdditionalDependencies); </AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib; libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -119,8 +119,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName);$(SolutionDir)MathLibrary</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MathLibrary.lib;raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; libcmtd.lib; msvcrtd.lib</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -139,13 +139,14 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\raylib\lib\$(PlatformShortName);$(SolutionDir)MathLibrary</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MathLibrary.lib;raylib_static.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; libcmtd.lib; msvcrtd.lib</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackBoard\BlackBoard.cpp" />
     <ClCompile Include="Collider\AABBCollider.cpp" />
     <ClCompile Include="Actors\Actor.cpp" />
     <ClCompile Include="Collider\CircleCollider.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Transform2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlackBoard\BlackBoard.h" />
     <ClInclude Include="Collider\AABBCollider.h" />
     <ClInclude Include="Actors\Actor.h" />
     <ClInclude Include="Collider\CircleCollider.h" />

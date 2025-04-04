@@ -3,6 +3,7 @@
 #include "Actors/SteeringAgent.h"
 #include "Transform2D.h"
 #include "Components/Seek.h"
+#include "BlackBoard/BlackBoard.h"
 class SteeringScene : public Scene
 {
 public:
@@ -15,7 +16,7 @@ public:
 
     MathLibrary::Vector2 playerPosition(Actor* actor);
 
-   
+    Blackboard* blackboard;
   // Actor* player_actor;
     
    // Actor* enemy_actor;
