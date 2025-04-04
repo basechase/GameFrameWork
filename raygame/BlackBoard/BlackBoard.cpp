@@ -17,9 +17,11 @@ bool Blackboard::setVector(MathLibrary::Vector2 vector)
 	return true;
 }
 
-
-MathLibrary::Vector2 Blackboard::returnPosition()
+void Blackboard::setDistance(float distance)
 {
 	BlackBoardItem data;
-	return data.blackboardVector;
+	data.type = BlackboardItemType::type_float;
+	data.distance = distance;
+	
 }
+

@@ -1,14 +1,12 @@
 #pragma once
 #include "Actors/Actor.h"
-#include "Actors/SteeringAgent.h"
+
 enum class BlackboardItemType 
 {
 
 	type_vector,
-	type_state,
-	type_bool,
-	type_player_pointer,
-	type_agent_pointer,
+	type_float,
+	
 
 };
 
@@ -18,8 +16,9 @@ class Blackboard
 public:
 	Blackboard();
 	~Blackboard();
-	MathLibrary::Vector2 returnPosition();
+	
 	bool setVector(MathLibrary::Vector2);
+	void setDistance(float distance);
 	
 
 private: 
@@ -31,9 +30,7 @@ private:
 		{
 			MathLibrary::Vector2 blackboardVector;
 			float distance;
-			bool unknown;
-			void* playerPointer;
-			void* agentPointer;
+			
 		};
 		BlackBoardItem() {}
 	
