@@ -10,33 +10,35 @@ void SteeringScene::start()
 	
 	
 	Scene::start();
-	SteeringAgent* agent = new SteeringAgent(200,500, "agent");
+	agent = new SteeringAgent(200,500, "a");
 	
-	Actor* player_actor = new Actor(100, 50, "player");
+	player_actor = new Actor(100, 50, "b");
 	
 	
 	
 	agent->getTransform()->setScale({ 50,50 });
-	blackboard = new Blackboard(agent);
+	agentBlackboard = new Blackboard(agent);
 
-
+	
 	player_actor->addComponent(new Input(player_actor, "player"));
 	player_actor->addComponent(new SpriteComponent(player_actor, "Images/player.png"));
 	player_actor->getTransform()->setScale({ 50,50 });
-	
+	playerBlackboard = new Blackboard(player_actor);
 	// LocalPosition().x
 	
 	
-	
+	other_agent = new SteeringAgent(30, 500, "c");
+	other_agent->getTransform()->setScale({ 50,50 });
 	
 
 	
 
 	addActor(agent);
 	
-
+	addActor(other_agent);
 	addActor(player_actor);
 	agent->setTarget(player_actor);
+	other_agent->setTarget(player_actor);
 	
 	
 	
@@ -44,10 +46,12 @@ void SteeringScene::start()
 
 void SteeringScene::update(float deltaTime)
 {
-		
-	std::cout << blackboard->m_owner->getTransform()->LocalPosition().x << std::endl;
 	
-	
+	if (agentBlackboard->isOffScreen())
+	{
+		std::cout << "one is offscreen";
+	}
+	//std::cout << agent->getTransform()->LocalPosition().y << std::endl;
 	Scene::update(deltaTime);
 
 	

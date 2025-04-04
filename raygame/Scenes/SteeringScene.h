@@ -15,11 +15,11 @@ public:
 
 
     MathLibrary::Vector2 playerPosition(Actor* actor);
-
-    Blackboard* blackboard;
-  // Actor* player_actor;
-    
+    Blackboard* playerBlackboard;
+    Blackboard* agentBlackboard;
+  Actor* player_actor;
+  SteeringAgent* other_agent;
    // Actor* enemy_actor;
-   // SteeringAgent* agent;
+   SteeringAgent* agent;
     
 };

@@ -1,11 +1,11 @@
 #pragma once
 #include "Actors/Actor.h"
-
-enum class BlackboardItemType 
+class SteeringAgent;
+enum class BlackboardItemType
 {
 
 	type_vector,
-	type_float,
+	type_string,
 	
 
 };
@@ -15,14 +15,16 @@ class Blackboard
 {
 public:
 	Blackboard() {}
-	Blackboard(Actor* owner);
+	Blackboard(Actor* actor);
 	~Blackboard();
-	
-	Actor* m_owner;
 
 	
+	Actor* m_owner;
+	bool isOffScreen();
+	char getName();
 	
-private: 
+	
+public:
 	struct BlackBoardItem {
 		BlackboardItemType type;
 		
@@ -30,7 +32,7 @@ private:
 		union
 		{
 			MathLibrary::Vector2 blackboardVector;
-			float distance;
+			const char* name;
 			
 		};
 		BlackBoardItem() {}

@@ -8,6 +8,7 @@
 
 class SteeringAgent : public Actor
 {
+public:
 	enum States 
 	{
 		wander,
@@ -20,7 +21,6 @@ class SteeringAgent : public Actor
 	};
 	
 
-public:
 
 	SteeringAgent(float x, float y, const char* name);
 	virtual void start();
@@ -44,7 +44,7 @@ public:
 	Flee* m_fleeComponent;
 	Seek* m_seekComponent;
 	SteeringAgent* agent;
-	Blackboard* blackboard;
+
 	Actor* target;
 	MathLibrary::Vector2 target_Position;
 	MathLibrary::Vector2 agent_Position;
