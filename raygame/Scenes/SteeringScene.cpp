@@ -31,14 +31,19 @@ void SteeringScene::start()
 	other_agent->getTransform()->setScale({ 50,50 });
 	
 
-	
 
 	addActor(agent);
 	
-	addActor(other_agent);
-	addActor(player_actor);
 	agent->setTarget(player_actor);
 	other_agent->setTarget(player_actor);
+	
+	
+	addActor(other_agent);
+
+	agentBlackboard->isStarted();
+	{
+	addActor(player_actor);
+	}
 	
 	
 	
@@ -47,11 +52,14 @@ void SteeringScene::start()
 void SteeringScene::update(float deltaTime)
 {
 	
+
+
 	if (agentBlackboard->isOffScreen())
 	{
-		std::cout << "one is offscreen";
+		MathLibrary::Vector2 middle = { 400,400 };
+		agent->m_transform->setLocalPosition(middle);
 	}
-	//std::cout << agent->getTransform()->LocalPosition().y << std::endl;
+
 	Scene::update(deltaTime);
 
 	

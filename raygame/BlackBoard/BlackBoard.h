@@ -1,11 +1,11 @@
 #pragma once
 #include "Actors/Actor.h"
-class SteeringAgent;
+
 enum class BlackboardItemType
 {
 
 	type_vector,
-	type_string,
+	type_bool,
 	
 
 };
@@ -20,8 +20,9 @@ public:
 
 	
 	Actor* m_owner;
+	bool isStarted();
 	bool isOffScreen();
-	char getName();
+
 	
 	
 public:
@@ -32,7 +33,7 @@ public:
 		union
 		{
 			MathLibrary::Vector2 blackboardVector;
-			const char* name;
+			bool m_started;
 			
 		};
 		BlackBoardItem() {}

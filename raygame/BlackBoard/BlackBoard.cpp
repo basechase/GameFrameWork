@@ -15,6 +15,14 @@ Blackboard::~Blackboard()
 	
 }
 
+bool Blackboard::isStarted()
+{
+	BlackBoardItem data;
+	data.type = BlackboardItemType::type_bool;
+	
+	return m_owner->m_started;
+}
+
 bool Blackboard::isOffScreen()
 {
 	BlackBoardItem data;
@@ -28,10 +36,3 @@ bool Blackboard::isOffScreen()
 	
 }
 
-char Blackboard::getName()
-{
-	BlackBoardItem data;
-	data.type = BlackboardItemType::type_string;
-	data.name = m_owner->getName();
-	return *data.name;
-}
